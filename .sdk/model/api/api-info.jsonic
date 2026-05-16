@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://ip-api.com/docs/api:json"
+      }
+      description: "This API allows users to retrieve geolocation information from an IP address or domain name. It provides details such as country, city, region, latitude, longitude, and more in a JSON format without requiring an API key."
+      servers: [
+        {
+          description: "Main API server (HTTP only for free tier)"
+          url: "http://ip-api.com"
+        }
+      ]
+      termsOfService: "https://ip-api.com"
+      title: "IP Geolocation API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

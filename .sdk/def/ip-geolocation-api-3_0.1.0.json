@@ -1,0 +1,475 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IP Geolocation API",
+    "description": "This API allows users to retrieve geolocation information from an IP address or domain name. It provides details such as country, city, region, latitude, longitude, and more in a JSON format without requiring an API key.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://ip-api.com/docs/api:json"
+    },
+    "termsOfService": "https://ip-api.com"
+  },
+  "servers": [
+    {
+      "url": "http://ip-api.com",
+      "description": "Main API server (HTTP only for free tier)"
+    }
+  ],
+  "paths": {
+    "/json/": {
+      "get": {
+        "summary": "Get geolocation for current IP",
+        "description": "Retrieve geolocation information for the IP address making the request. Returns details such as country, city, region, latitude, longitude, timezone, ISP, and more.",
+        "operationId": "getGeolocationCurrent",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Comma-separated list of fields to return (e.g., 'status,message,query,country,city') or a numeric value representing combined fields",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "status,message,country,city,lat,lon"
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "Response language for localized city, regionName and country fields",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en",
+                "de",
+                "es",
+                "pt-BR",
+                "fr",
+                "ja",
+                "zh-CN",
+                "ru"
+              ],
+              "default": "en"
+            }
+          },
+          {
+            "name": "callback",
+            "in": "query",
+            "description": "JSONP callback function name to wrap the response",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful geolocation lookup",
+            "headers": {
+              "X-Rl": {
+                "description": "Number of requests remaining in the current rate limit window",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Ttl": {
+                "description": "Seconds until the rate limit is reset",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeolocationResponse"
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "status": "success",
+                      "continent": "North America",
+                      "continentCode": "NA",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "region": "CA",
+                      "regionName": "California",
+                      "city": "Mountain View",
+                      "district": "Old Farm District",
+                      "zip": "94043",
+                      "lat": 37.4192,
+                      "lon": -122.0574,
+                      "timezone": "America/Los_Angeles",
+                      "offset": -25200,
+                      "currency": "USD",
+                      "isp": "Google",
+                      "org": "Google",
+                      "as": "AS15169 Google Inc.",
+                      "asname": "GOOGLE",
+                      "reverse": "wi-in-f94.1e100.net",
+                      "mobile": false,
+                      "proxy": false,
+                      "hosting": true,
+                      "query": "173.194.67.94"
+                    }
+                  },
+                  "fail": {
+                    "value": {
+                      "status": "fail",
+                      "message": "invalid query",
+                      "query": "invalid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded - requests are throttled (45 requests per minute limit)",
+            "headers": {
+              "X-Rl": {
+                "description": "Number of requests remaining (0 when rate limited)",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Ttl": {
+                "description": "Seconds until the rate limit is reset",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "x-rate-limit": {
+          "limit": 45,
+          "window": "1 minute",
+          "note": "IP address will be banned for 1 hour if constantly exceeding the limit"
+        }
+      }
+    },
+    "/json/{query}": {
+      "get": {
+        "summary": "Get geolocation for specific IP or domain",
+        "description": "Retrieve geolocation information for a specified IPv4/IPv6 address or domain name. Returns details such as country, city, region, latitude, longitude, timezone, ISP, and more.",
+        "operationId": "getGeolocationByQuery",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "description": "IPv4/IPv6 address or domain name to lookup",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "ipv4": {
+                "value": "8.8.8.8",
+                "summary": "IPv4 address"
+              },
+              "ipv6": {
+                "value": "2001:4860:4860::8888",
+                "summary": "IPv6 address"
+              },
+              "domain": {
+                "value": "google.com",
+                "summary": "Domain name"
+              }
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Comma-separated list of fields to return (e.g., 'status,message,query,country,city') or a numeric value representing combined fields",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "status,message,country,city,lat,lon"
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "Response language for localized city, regionName and country fields",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en",
+                "de",
+                "es",
+                "pt-BR",
+                "fr",
+                "ja",
+                "zh-CN",
+                "ru"
+              ],
+              "default": "en"
+            }
+          },
+          {
+            "name": "callback",
+            "in": "query",
+            "description": "JSONP callback function name to wrap the response",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful geolocation lookup",
+            "headers": {
+              "X-Rl": {
+                "description": "Number of requests remaining in the current rate limit window",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Ttl": {
+                "description": "Seconds until the rate limit is reset",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeolocationResponse"
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "status": "success",
+                      "continent": "North America",
+                      "continentCode": "NA",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "region": "CA",
+                      "regionName": "California",
+                      "city": "Mountain View",
+                      "district": "Old Farm District",
+                      "zip": "94043",
+                      "lat": 37.4192,
+                      "lon": -122.0574,
+                      "timezone": "America/Los_Angeles",
+                      "offset": -25200,
+                      "currency": "USD",
+                      "isp": "Google",
+                      "org": "Google",
+                      "as": "AS15169 Google Inc.",
+                      "asname": "GOOGLE",
+                      "reverse": "wi-in-f94.1e100.net",
+                      "mobile": false,
+                      "proxy": false,
+                      "hosting": true,
+                      "query": "173.194.67.94"
+                    }
+                  },
+                  "fail_private": {
+                    "value": {
+                      "status": "fail",
+                      "message": "private range",
+                      "query": "192.168.1.1"
+                    }
+                  },
+                  "fail_reserved": {
+                    "value": {
+                      "status": "fail",
+                      "message": "reserved range",
+                      "query": "0.0.0.0"
+                    }
+                  },
+                  "fail_invalid": {
+                    "value": {
+                      "status": "fail",
+                      "message": "invalid query",
+                      "query": "not-an-ip"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded - requests are throttled (45 requests per minute limit)",
+            "headers": {
+              "X-Rl": {
+                "description": "Number of requests remaining (0 when rate limited)",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Ttl": {
+                "description": "Seconds until the rate limit is reset",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "x-rate-limit": {
+          "limit": 45,
+          "window": "1 minute",
+          "note": "IP address will be banned for 1 hour if constantly exceeding the limit"
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GeolocationResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "fail"
+            ],
+            "description": "Status of the query"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message, included only when status is fail. Can be 'private range', 'reserved range', or 'invalid query'",
+            "enum": [
+              "private range",
+              "reserved range",
+              "invalid query"
+            ]
+          },
+          "continent": {
+            "type": "string",
+            "description": "Continent name",
+            "example": "North America"
+          },
+          "continentCode": {
+            "type": "string",
+            "description": "Two-letter continent code",
+            "example": "NA"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country name",
+            "example": "United States"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Two-letter country code (ISO 3166-1 alpha-2)",
+            "example": "US"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region/state short code (FIPS or ISO)",
+            "example": "CA"
+          },
+          "regionName": {
+            "type": "string",
+            "description": "Region/state name",
+            "example": "California"
+          },
+          "city": {
+            "type": "string",
+            "description": "City name",
+            "example": "Mountain View"
+          },
+          "district": {
+            "type": "string",
+            "description": "District (subdivision of city)",
+            "example": "Old Farm District"
+          },
+          "zip": {
+            "type": "string",
+            "description": "Zip/postal code",
+            "example": "94043"
+          },
+          "lat": {
+            "type": "number",
+            "format": "float",
+            "description": "Latitude",
+            "example": 37.4192
+          },
+          "lon": {
+            "type": "number",
+            "format": "float",
+            "description": "Longitude",
+            "example": -122.0574
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Timezone (tz database format)",
+            "example": "America/Los_Angeles"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Timezone UTC DST offset in seconds",
+            "example": -25200
+          },
+          "currency": {
+            "type": "string",
+            "description": "National currency code",
+            "example": "USD"
+          },
+          "isp": {
+            "type": "string",
+            "description": "ISP name",
+            "example": "Google"
+          },
+          "org": {
+            "type": "string",
+            "description": "Organization name",
+            "example": "Google"
+          },
+          "as": {
+            "type": "string",
+            "description": "AS number and organization, separated by space (RIR). Empty for IP blocks not being announced in BGP tables",
+            "example": "AS15169 Google Inc."
+          },
+          "asname": {
+            "type": "string",
+            "description": "AS name (RIR). Empty for IP blocks not being announced in BGP tables",
+            "example": "GOOGLE"
+          },
+          "reverse": {
+            "type": "string",
+            "description": "Reverse DNS of the IP (can delay response)",
+            "example": "wi-in-f94.1e100.net"
+          },
+          "mobile": {
+            "type": "boolean",
+            "description": "Mobile (cellular) connection",
+            "example": false
+          },
+          "proxy": {
+            "type": "boolean",
+            "description": "Proxy, VPN or Tor exit address",
+            "example": false
+          },
+          "hosting": {
+            "type": "boolean",
+            "description": "Hosting, colocated or data center",
+            "example": true
+          },
+          "query": {
+            "type": "string",
+            "description": "IP address or domain used for the query",
+            "example": "173.194.67.94"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      }
+    }
+  },
+  "x-usage-limits": {
+    "rate-limit": "45 requests per minute per IP address",
+    "throttling": "HTTP 429 response when limit exceeded",
+    "ban-policy": "1 hour ban for constantly exceeding limits",
+    "commercial-use": "Not allowed on free tier"
+  }
+}
