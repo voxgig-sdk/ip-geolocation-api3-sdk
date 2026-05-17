@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/ip-geolocation-api3-sdk"
+	sdk "github.com/voxgig-sdk/ip-geolocation-api3-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

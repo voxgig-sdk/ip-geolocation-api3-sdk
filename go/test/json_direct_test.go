@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/ip-geolocation-api3-sdk"
-	"github.com/voxgig-sdk/ip-geolocation-api3-sdk/core"
+	sdk "github.com/voxgig-sdk/ip-geolocation-api3-sdk/go"
+	"github.com/voxgig-sdk/ip-geolocation-api3-sdk/go/core"
 )
 
 func TestJsonDirect(t *testing.T) {

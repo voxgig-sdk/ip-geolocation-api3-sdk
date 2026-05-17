@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/ip-geolocation-api3-sdk/core"
+	"github.com/voxgig-sdk/ip-geolocation-api3-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/ip-geolocation-api3-sdk/go/utility/struct"
 )
 
 type JsonEntity struct {
