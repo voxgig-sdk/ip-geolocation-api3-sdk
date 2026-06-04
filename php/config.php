@@ -20,9 +20,6 @@ class IpGeolocationApi3Config
             ],
             "options" => [
                 "base" => "http://ip-api.com",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

@@ -17,8 +17,28 @@ main: {
       termsOfService: "https://ip-api.com"
       title: "IP Geolocation API"
       version: "1.0.0"
+      tagline: "Look up geolocation and network details for any IP address or domain over plain HTTP"
+      homepage: "http://ip-api.com"
+      docs_url: "http://ip-api.com/docs"
+      license_short: "Free for non-commercial use; commercial use requires a paid pro subscription."
+      license_md: `- Free tier is for non-commercial use only.
+- No API key or registration required for the free endpoint.
+- Commercial use, SSL access, and unlimited queries require the paid pro service.
+- Operator commits that the free API schema will not change.`
+      about_md: `[ip-api.com](http://ip-api.com) is an IP geolocation service that has operated since 2012, resolving IPv4/IPv6 addresses and domain names to location and network metadata. The operator reports handling more than a billion requests per day.
+
+What you get from the API:
+
+- Location fields such as \`country\`, \`countryCode\`, \`region\`, \`regionName\`, \`city\`, \`lat\`, \`lon\`, and \`timezone\`.
+- Network fields including \`isp\`, \`org\`, and AS information.
+- Flags indicating whether the address is associated with mobile, proxy, or hosting networks.
+- A \`fields\` query parameter to restrict the response to only the values you need.
+
+The free JSON endpoint lives at \`http://ip-api.com/json/{query}\` and is accessed over plain HTTP with no key. Requests are limited to 45 per minute per client IP; over-limit calls return HTTP 429, and each response includes \`X-Rl\` (requests remaining) and \`X-Ttl\` (seconds until reset) headers. Batch and DNS endpoints are also available, and HTTPS plus higher quotas are offered through the paid pro tier.`
+      entity_desc: {
+        json: "Geolocation lookup for an IP address or domain, returned as JSON from `/json/{query}` with optional `fields` filtering."
+      }
+      auth: false
     }
   }
-}
-
 }
