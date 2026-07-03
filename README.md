@@ -1,21 +1,8 @@
 # IpGeolocationApi3 SDK
 
-Look up geolocation and network details for any IP address or domain over plain HTTP
+IP Geolocation API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About IP Geolocation API
-
-[ip-api.com](http://ip-api.com) is an IP geolocation service that has operated since 2012, resolving IPv4/IPv6 addresses and domain names to location and network metadata. The operator reports handling more than a billion requests per day.
-
-What you get from the API:
-
-- Location fields such as `country`, `countryCode`, `region`, `regionName`, `city`, `lat`, `lon`, and `timezone`.
-- Network fields including `isp`, `org`, and AS information.
-- Flags indicating whether the address is associated with mobile, proxy, or hosting networks.
-- A `fields` query parameter to restrict the response to only the values you need.
-
-The free JSON endpoint lives at `http://ip-api.com/json/{query}` and is accessed over plain HTTP with no key. Requests are limited to 45 per minute per client IP; over-limit calls return HTTP 429, and each response includes `X-Rl` (requests remaining) and `X-Ttl` (seconds until reset) headers. Batch and DNS endpoints are also available, and HTTPS plus higher quotas are offered through the paid pro tier.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install ip-geolocation-api3-sdk
 luarocks install ip-geolocation-api3-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { IpGeolocationApi3SDK } from 'ip-geolocation-api3'
 
-const client = new IpGeolocationApi3SDK({})
+const client = new IpGeolocationApi3SDK({
+  apikey: process.env.IP-GEOLOCATION-API3_APIKEY,
+})
 
+// Load json data
+const json = await client.Json().load({})
+console.log(json.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Json** | Geolocation lookup for an IP address or domain, returned as JSON from `/json/{query}` with optional `fields` filtering. | `/json/{query}` |
+| **Json** |  | `/json/{query}` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from ipgeolocationapi3_sdk import IpGeolocationApi3SDK
 
-client = IpGeolocationApi3SDK({})
+client = IpGeolocationApi3SDK({
+    "apikey": os.environ.get("IP-GEOLOCATION-API3_APIKEY"),
+})
 
 
 # Load a specific json
-json, err = client.Json(None).load(
-    {"id": "example_id"}, None
-)
+json, err = client.Json().load({"id": "example_id"})
+print(json)
 ```
 
 ### PHP
@@ -126,13 +119,14 @@ json, err = client.Json(None).load(
 <?php
 require_once 'ipgeolocationapi3_sdk.php';
 
-$client = new IpGeolocationApi3SDK([]);
+$client = new IpGeolocationApi3SDK([
+    "apikey" => getenv("IP-GEOLOCATION-API3_APIKEY"),
+]);
 
 
 // Load a specific json
-[$json, $err] = $client->Json(null)->load(
-    ["id" => "example_id"], null
-);
+[$json, $err] = $client->Json()->load(["id" => "example_id"]);
+print_r($json);
 ```
 
 ### Golang
@@ -140,8 +134,13 @@ $client = new IpGeolocationApi3SDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/ip-geolocation-api3-sdk/go"
 
-client := sdk.NewIpGeolocationApi3SDK(map[string]any{})
+client := sdk.NewIpGeolocationApi3SDK(map[string]any{
+    "apikey": os.Getenv("IP-GEOLOCATION-API3_APIKEY"),
+})
 
+// Load json data
+json, err := client.Json(nil).Load(map[string]any{}, nil)
+fmt.Println(json)
 ```
 
 ### Ruby
@@ -149,13 +148,14 @@ client := sdk.NewIpGeolocationApi3SDK(map[string]any{})
 ```ruby
 require_relative "IpGeolocationApi3_sdk"
 
-client = IpGeolocationApi3SDK.new({})
+client = IpGeolocationApi3SDK.new({
+  "apikey" => ENV["IP-GEOLOCATION-API3_APIKEY"],
+})
 
 
 # Load a specific json
-json, err = client.Json(nil).load(
-  { "id" => "example_id" }, nil
-)
+json, err = client.Json().load({ "id" => "example_id" })
+puts json
 ```
 
 ### Lua
@@ -163,13 +163,14 @@ json, err = client.Json(nil).load(
 ```lua
 local sdk = require("ip-geolocation-api3_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("IP-GEOLOCATION-API3_APIKEY"),
+})
 
 
 -- Load a specific json
-local json, err = client:Json(nil):load(
-  { id = "example_id" }, nil
-)
+local json, err = client:Json():load({ id = "example_id" })
+print(json)
 ```
 
 ## Unit testing in offline mode
@@ -188,25 +189,21 @@ const result = await client.Json().load({ id: 'test01' })
 ### Python
 
 ```python
-client = IpGeolocationApi3SDK.test(None, None)
-result, err = client.Json(None).load(
-    {"id": "test01"}, None
-)
+client = IpGeolocationApi3SDK.test()
+result, err = client.Json().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = IpGeolocationApi3SDK::test(null, null);
-[$result, $err] = $client->Json(null)->load(
-    ["id" => "test01"], null
-);
+$client = IpGeolocationApi3SDK::test();
+[$result, $err] = $client->Json()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Json(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -215,19 +212,15 @@ result, err := client.Json(nil).Load(
 ### Ruby
 
 ```ruby
-client = IpGeolocationApi3SDK.test(nil, nil)
-result, err = client.Json(nil).load(
-  { "id" => "test01" }, nil
-)
+client = IpGeolocationApi3SDK.test
+result, err = client.Json().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Json(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Json():load({ id = "test01" })
 ```
 
 ## How it works
@@ -331,16 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the IP Geolocation API
-
-- Upstream: [http://ip-api.com](http://ip-api.com)
-- API docs: [http://ip-api.com/docs](http://ip-api.com/docs)
-
-- Free tier is for non-commercial use only.
-- No API key or registration required for the free endpoint.
-- Commercial use, SSL access, and unlimited queries require the paid pro service.
-- Operator commits that the free API schema will not change.
 
 ---
 

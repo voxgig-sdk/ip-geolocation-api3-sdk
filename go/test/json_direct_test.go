@@ -110,12 +110,14 @@ func jsonDirectSetup(mockres any) *jsonDirectSetupResult {
 	env := envOverride(map[string]any{
 		"IPGEOLOCATIONAPI__TEST_JSON_ENTID": map[string]any{},
 		"IPGEOLOCATIONAPI__TEST_LIVE":    "FALSE",
+		"IPGEOLOCATIONAPI__APIKEY":       "NONE",
 	})
 
 	live := env["IPGEOLOCATIONAPI__TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["IPGEOLOCATIONAPI__APIKEY"],
 		}
 		client := sdk.NewIpGeolocationApi3SDK(mergedOpts)
 

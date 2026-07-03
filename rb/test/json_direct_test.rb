@@ -69,12 +69,14 @@ def json_direct_setup(mockres)
   env = Runner.env_override({
     "IPGEOLOCATIONAPI__TEST_JSON_ENTID" => {},
     "IPGEOLOCATIONAPI__TEST_LIVE" => "FALSE",
+    "IPGEOLOCATIONAPI__APIKEY" => "NONE",
   })
 
   live = env["IPGEOLOCATIONAPI__TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["IPGEOLOCATIONAPI__APIKEY"],
     }
     client = IpGeolocationApi3SDK.new(merged_opts)
     return {

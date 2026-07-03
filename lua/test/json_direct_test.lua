@@ -70,12 +70,14 @@ function json_direct_setup(mockres)
   local env = runner.env_override({
     ["IPGEOLOCATIONAPI__TEST_JSON_ENTID"] = {},
     ["IPGEOLOCATIONAPI__TEST_LIVE"] = "FALSE",
+    ["IPGEOLOCATIONAPI__APIKEY"] = "NONE",
   })
 
   local live = env["IPGEOLOCATIONAPI__TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["IPGEOLOCATIONAPI__APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

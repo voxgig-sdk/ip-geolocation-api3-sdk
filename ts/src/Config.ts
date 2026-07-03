@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'http://ip-api.com',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,225 +59,227 @@ class Config {
     "json": {
       "fields": [
         {
+          "active": true,
           "name": "as",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "asname",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "city",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "continent",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "continent_code",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "country",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "country_code",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 6
         },
         {
+          "active": true,
           "name": "currency",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 7
         },
         {
+          "active": true,
           "name": "district",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 8
         },
         {
+          "active": true,
           "name": "hosting",
           "req": false,
           "type": "`$BOOLEAN`",
-          "active": true,
           "index$": 9
         },
         {
+          "active": true,
           "name": "isp",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 10
         },
         {
+          "active": true,
           "name": "lat",
           "req": false,
           "type": "`$NUMBER`",
-          "active": true,
           "index$": 11
         },
         {
+          "active": true,
           "name": "lon",
           "req": false,
           "type": "`$NUMBER`",
-          "active": true,
           "index$": 12
         },
         {
+          "active": true,
           "name": "message",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 13
         },
         {
+          "active": true,
           "name": "mobile",
           "req": false,
           "type": "`$BOOLEAN`",
-          "active": true,
           "index$": 14
         },
         {
+          "active": true,
           "name": "offset",
           "req": false,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 15
         },
         {
+          "active": true,
           "name": "org",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 16
         },
         {
+          "active": true,
           "name": "proxy",
           "req": false,
           "type": "`$BOOLEAN`",
-          "active": true,
           "index$": 17
         },
         {
+          "active": true,
           "name": "query",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 18
         },
         {
+          "active": true,
           "name": "region",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 19
         },
         {
+          "active": true,
           "name": "region_name",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 20
         },
         {
+          "active": true,
           "name": "reverse",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 21
         },
         {
+          "active": true,
           "name": "status",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 22
         },
         {
+          "active": true,
           "name": "timezone",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 23
         },
         {
+          "active": true,
           "name": "zip",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 24
         }
       ],
       "name": "json",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "example": "8.8.8.8",
                     "kind": "param",
                     "name": "id",
                     "orig": "query",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "callback",
                     "orig": "callback",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "status,message,country,city,lat,lon",
                     "kind": "query",
                     "name": "field",
                     "orig": "field",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "en",
                     "kind": "query",
                     "name": "lang",
                     "orig": "lang",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -300,37 +306,37 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "callback",
                     "orig": "callback",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "status,message,country,city,lat,lon",
                     "kind": "query",
                     "name": "field",
                     "orig": "field",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "en",
                     "kind": "query",
                     "name": "lang",
                     "orig": "lang",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -350,11 +356,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 1
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
