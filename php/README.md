@@ -10,7 +10,7 @@ The PHP SDK for the IpGeolocationApi3 API — an entity-oriented client using PH
 
 ## Install
 ```bash
-composer require voxgig/ip-geolocation-api3-sdk
+composer require voxgig-sdk/ip-geolocation-api3
 ```
 
 

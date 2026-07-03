@@ -10,7 +10,7 @@ The Python SDK for the IpGeolocationApi3 API — an entity-oriented client follo
 
 ## Install
 ```bash
-pip install ip-geolocation-api3-sdk
+pip install voxgig-sdk-ip-geolocation-api3
 ```
 
 Or install from source:

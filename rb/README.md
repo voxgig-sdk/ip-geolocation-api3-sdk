@@ -10,13 +10,13 @@ The Ruby SDK for the IpGeolocationApi3 API — an entity-oriented client using i
 
 ## Install
 ```bash
-gem install ip-geolocation-api3-sdk
+gem install voxgig-sdk-ip-geolocation-api3
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "ip-geolocation-api3-sdk"
+gem "voxgig-sdk-ip-geolocation-api3"
 ```
 
 Then run:
