@@ -109,7 +109,7 @@ Alias for `IpGeolocationApi3SDK.test()`.
 ## JsonEntity
 
 ```ts
-const json = client.json
+const json = client.Json()
 ```
 
 ### Fields
@@ -149,7 +149,7 @@ const json = client.json
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.json.load({ id: 'json_id' })
+const result = await client.Json().load({ id: 'json_id' })
 ```
 
 ### Common Methods

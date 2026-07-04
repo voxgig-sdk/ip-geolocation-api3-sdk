@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## JsonEntity
 
 ```ruby
-json = client.json
+json = client.Json
 ```
 
 ### Fields
@@ -126,7 +126,7 @@ json = client.json
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.json.load({ "id" => "json_id" })
+result = client.Json.load({ "id" => "json_id" })
 ```
 
 ### Common Methods

@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## JsonEntity
 
 ```python
-json = client.json
+json = client.Json()
 ```
 
 ### Fields
@@ -120,7 +120,7 @@ json = client.json
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.json.load({"id": "json_id"})
+result = client.Json().load({"id": "json_id"})
 ```
 
 ### Common Methods

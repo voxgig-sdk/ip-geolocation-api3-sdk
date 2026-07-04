@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## JsonEntity
 
 ```php
-$json = $client->json();
+$json = $client->Json();
 ```
 
 ### Fields
@@ -125,7 +125,7 @@ $json = $client->json();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->json()->load(["id" => "json_id"]);
+$result = $client->Json()->load(["id" => "json_id"]);
 ```
 
 ### Common Methods

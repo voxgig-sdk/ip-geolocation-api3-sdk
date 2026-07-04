@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:json():list() / client:json():load({ id = ... })
-function IpGeolocationApi3SDK:json(data)
+-- Idiomatic facade: client:Json():list() / client:Json():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function IpGeolocationApi3SDK:Json(data)
   local EntityMod = require("entity.json_entity")
   if data == nil then
     if self._json == nil then
@@ -253,12 +254,6 @@ function IpGeolocationApi3SDK:json(data)
     end
     return self._json
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:json() instead.
-function IpGeolocationApi3SDK:Json(data)
-  local EntityMod = require("entity.json_entity")
   return EntityMod.new(self, data)
 end
 

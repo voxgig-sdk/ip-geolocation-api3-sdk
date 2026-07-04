@@ -233,10 +233,10 @@ class IpGeolocationApi3SDK
 
     private $_json = null;
 
-    // Idiomatic facade: $client->json()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Json() (PHP method
-    // names are case-insensitive).
-    public function json($data = null)
+    // Canonical facade: $client->Json()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->json()
+    // resolves here too.
+    public function Json($data = null)
     {
         require_once __DIR__ . '/entity/json_entity.php';
         if ($data === null) {

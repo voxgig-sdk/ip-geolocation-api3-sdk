@@ -204,14 +204,7 @@ class IpGeolocationApi3SDK {
 
 
 
-  _json?: JsonEntity
-
-  // Idiomatic facade: `client.json.list()` / `client.json.load({ id })`.
-  get json(): JsonEntity {
-    return (this._json ??= new JsonEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.json` instead. */
+  // Entity access: `client.Json().list()` / `client.Json().load({ id })`.
   Json(data?: any) {
     const self = this
     return new JsonEntity(self,data)

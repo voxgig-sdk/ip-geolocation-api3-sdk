@@ -220,25 +220,15 @@ class IpGeolocationApi3SDK:
         }
 
 
-    @property
-    def json(self):
-        """Idiomatic facade: client.json.list() / client.json.load({"id": ...})."""
-        from entity.json_entity import JsonEntity
-        cached = getattr(self, "_json", None)
-        if cached is None:
-            cached = JsonEntity(self, None)
-            self._json = cached
-        return cached
-
-    def Json(self, data=None):
-        # Deprecated: use client.json instead.
+    def Json(self, data=None) -> "JsonEntity":
+        """Entity factory: client.Json().list({}) / client.Json().load({"id": ...})."""
         from entity.json_entity import JsonEntity
         return JsonEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "IpGeolocationApi3SDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class IpGeolocationApi3SDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.json_entity import JsonEntity

@@ -26,9 +26,9 @@ import { IpGeolocationApi3SDK } from '@voxgig-sdk/ip-geolocation-api3'
 
 const client = new IpGeolocationApi3SDK()
 
-// Load json data
-const json = await client.json.load({})
-console.log(json.data)
+// Load json data (returns a Json)
+const json = await client.Json().load()
+console.log(json)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from ipgeolocationapi3_sdk import IpGeolocationApi3SDK
 client = IpGeolocationApi3SDK()
 
 
-# Load a specific json
-json = client.json.load({"id": "example_id"})
+# Load a specific json (returns the record, raises on error)
+json = client.Json().load({"id": "example_id"})
 print(json)
 ```
 
@@ -98,8 +98,8 @@ require_once 'ipgeolocationapi3_sdk.php';
 $client = new IpGeolocationApi3SDK();
 
 
-// Load a specific json
-$json = $client->json()->load(["id" => "example_id"]);
+// Load a specific json (returns the bare record; throws on error)
+$json = $client->Json()->load(["id" => "example_id"]);
 print_r($json);
 ```
 
@@ -123,8 +123,8 @@ require_relative "IpGeolocationApi3_sdk"
 client = IpGeolocationApi3SDK.new
 
 
-# Load a specific json
-json = client.json.load({ "id" => "example_id" })
+# Load a specific json (returns the bare record; raises on error)
+json = client.Json.load({ "id" => "example_id" })
 puts json
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific json
-local json, err = client:json():load({ id = "example_id" })
+local json, err = client:Json():load({ id = "example_id" })
 print(json)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = IpGeolocationApi3SDK.test()
-const result = await client.json.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const json = await client.Json().load({ id: 'test01' })
+// json is a bare Json populated with mock data
+console.log(json)
 ```
 
 ### Python
 
 ```python
 client = IpGeolocationApi3SDK.test()
-result = client.json.load({"id": "test01"})
+json = client.Json().load({"id": "test01"})
+print(json)
 ```
 
 ### PHP
 
 ```php
-$client = IpGeolocationApi3SDK::test();
-$result = $client->json()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = IpGeolocationApi3SDK::test([
+    "entity" => ["json" => ["test01" => ["id" => "test01"]]],
+]);
+$json = $client->Json()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Json(nil).Load(
 ### Ruby
 
 ```ruby
-client = IpGeolocationApi3SDK.test
-result = client.json.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = IpGeolocationApi3SDK.test({
+  "entity" => { "json" => { "test01" => { "id" => "test01" } } },
+})
+json = client.Json.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:json():load({ id = "test01" })
+local result, err = client:Json():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

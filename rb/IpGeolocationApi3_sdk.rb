@@ -208,13 +208,7 @@ class IpGeolocationApi3SDK
   end
 
 
-  # Idiomatic facade: client.json.list / client.json.load({ "id" => ... })
-  def json
-    require_relative 'entity/json_entity'
-    @json ||= JsonEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.json instead.
+  # Canonical facade: client.Json.list / client.Json.load({ "id" => ... })
   def Json(data = nil)
     require_relative 'entity/json_entity'
     JsonEntity.new(self, data)

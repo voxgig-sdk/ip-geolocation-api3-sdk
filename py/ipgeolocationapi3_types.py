@@ -4,42 +4,47 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Json:
+class JsonRequired(TypedDict):
     status: str
-    asname: Optional[str] = None
-    city: Optional[str] = None
-    continent: Optional[str] = None
-    continent_code: Optional[str] = None
-    country: Optional[str] = None
-    country_code: Optional[str] = None
-    currency: Optional[str] = None
-    district: Optional[str] = None
-    hosting: Optional[bool] = None
-    isp: Optional[str] = None
-    lat: Optional[float] = None
-    lon: Optional[float] = None
-    message: Optional[str] = None
-    mobile: Optional[bool] = None
-    offset: Optional[int] = None
-    org: Optional[str] = None
-    proxy: Optional[bool] = None
-    query: Optional[str] = None
-    region: Optional[str] = None
-    region_name: Optional[str] = None
-    reverse: Optional[str] = None
-    timezone: Optional[str] = None
-    zip: Optional[str] = None
 
 
-@dataclass
-class JsonLoadMatch:
+class Json(JsonRequired, total=False):
+    asname: str
+    city: str
+    continent: str
+    continent_code: str
+    country: str
+    country_code: str
+    currency: str
+    district: str
+    hosting: bool
+    isp: str
+    lat: float
+    lon: float
+    message: str
+    mobile: bool
+    offset: int
+    org: str
+    proxy: bool
+    query: str
+    region: str
+    region_name: str
+    reverse: str
+    timezone: str
+    zip: str
+
+
+class JsonLoadMatch(TypedDict):
     id: str
-

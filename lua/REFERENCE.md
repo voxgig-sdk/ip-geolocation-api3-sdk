@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## JsonEntity
 
 ```lua
-local json = client:json(nil)
+local json = client:Json(nil)
 ```
 
 ### Fields
@@ -123,7 +123,7 @@ local json = client:json(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:json():load({ id = "json_id" })
+local result, err = client:Json():load({ id = "json_id" })
 ```
 
 ### Common Methods

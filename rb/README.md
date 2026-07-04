@@ -32,8 +32,9 @@ client = IpGeolocationApi3SDK.new
 
 ```ruby
 begin
-  result = client.json.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Json record (raises on error).
+  json = client.Json.load({ "id" => "example_id" })
+  puts json
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = IpGeolocationApi3SDK.test
+client = IpGeolocationApi3SDK.test({
+  "entity" => { "json" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.json.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+json = client.Json.load({ "id" => "test01" })
+puts json
 ```
 
 ### Use a custom fetch function
@@ -242,7 +247,7 @@ API path: `/json/{query}`
 
 ### Json
 
-Create an instance: `const json = client.json`
+Create an instance: `json = client.Json`
 
 #### Operations
 
@@ -282,8 +287,9 @@ Create an instance: `const json = client.json`
 
 #### Example: Load
 
-```ts
-const json = await client.json.load({ id: 'json_id' })
+```ruby
+# load returns the bare Json record (raises on error).
+json = client.Json.load({ "id" => "json_id" })
 ```
 
 
@@ -358,7 +364,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-json = client.json
+json = client.Json
 json.load({ "id" => "example_id" })
 
 # json.data_get now returns the loaded json data

@@ -33,10 +33,12 @@ client = IpGeolocationApi3SDK()
 
 ### 3. Load a json
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.json.load({"id": "example_id"})
-    print(result)
+    json = client.Json().load({"id": "example_id"})
+    print(json)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = IpGeolocationApi3SDK.test()
 
-result = client.json.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+json = client.Json().load({"id": "test01"})
+# json contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -242,7 +245,7 @@ API path: `/json/{query}`
 
 ### Json
 
-Create an instance: `const json = client.json`
+Create an instance: `json = client.Json()`
 
 #### Operations
 
@@ -282,8 +285,8 @@ Create an instance: `const json = client.json`
 
 #### Example: Load
 
-```ts
-const json = await client.json.load({ id: 'json_id' })
+```python
+json = client.Json().load({"id": "json_id"})
 ```
 
 
@@ -357,7 +360,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-json = client.json
+json = client.Json()
 json.load({"id": "example_id"})
 
 # json.data_get() now returns the loaded json data
