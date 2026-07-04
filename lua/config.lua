@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "http://ip-api.com",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },
@@ -221,6 +218,7 @@ local function make_config()
                       ["orig"] = "query",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {

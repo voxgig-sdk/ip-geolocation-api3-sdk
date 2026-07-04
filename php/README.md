@@ -9,9 +9,10 @@ The PHP SDK for the IpGeolocationApi3 API — an entity-oriented client using PH
 
 
 ## Install
-```bash
-composer require voxgig-sdk/ip-geolocation-api3
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/ip-geolocation-api3-sdk/releases](https://github.com/voxgig-sdk/ip-geolocation-api3-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,17 +26,18 @@ loading a specific record.
 <?php
 require_once 'ipgeolocationapi3_sdk.php';
 
-$client = new IpGeolocationApi3SDK([
-    "apikey" => getenv("IP-GEOLOCATION-API3_APIKEY"),
-]);
+$client = new IpGeolocationApi3SDK();
 ```
 
 ### 3. Load a json
 
 ```php
-[$result, $err] = $client->Json()->load(["id" => "example_id"]);
-if ($err) { throw new \Exception($err); }
-print_r($result);
+try {
+    $result = $client->json()->load(["id" => "example_id"]);
+    print_r($result);
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
+}
 ```
 
 
@@ -46,28 +48,31 @@ print_r($result);
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -81,7 +86,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = IpGeolocationApi3SDK::test();
 
-[$result, $err] = $client->IpGeolocationApi3()->load(["id" => "test01"]);
+$result = $client->json()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -115,8 +120,7 @@ $client = new IpGeolocationApi3SDK([
 Create a `.env.local` file at the project root:
 
 ```
-IP-GEOLOCATION-API3_TEST_LIVE=TRUE
-IP-GEOLOCATION-API3_APIKEY=<your-key>
+IP_GEOLOCATION_API3_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -139,7 +143,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -185,8 +188,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -240,7 +247,7 @@ API path: `/json/{query}`
 
 ### Json
 
-Create an instance: `const json = client.Json()`
+Create an instance: `const json = client.json`
 
 #### Operations
 
@@ -281,7 +288,7 @@ Create an instance: `const json = client.Json()`
 #### Example: Load
 
 ```ts
-const json = await client.Json().load({ id: 'json_id' })
+const json = await client.json.load({ id: 'json_id' })
 ```
 
 
@@ -356,11 +363,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$json = $client->json();
+$json->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $json->dataGet() now returns the loaded json data
+// $json->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

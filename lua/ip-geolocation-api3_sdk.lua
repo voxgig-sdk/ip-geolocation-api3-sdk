@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:json():list() / client:json():load({ id = ... })
+function IpGeolocationApi3SDK:json(data)
+  local EntityMod = require("entity.json_entity")
+  if data == nil then
+    if self._json == nil then
+      self._json = EntityMod.new(self, nil)
+    end
+    return self._json
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:json() instead.
 function IpGeolocationApi3SDK:Json(data)
   local EntityMod = require("entity.json_entity")
   return EntityMod.new(self, data)

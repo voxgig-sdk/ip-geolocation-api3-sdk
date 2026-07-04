@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "http://ip-api.com",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -222,6 +219,7 @@ def make_config():
                       "orig": "query",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                   "query": [

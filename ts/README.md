@@ -9,9 +9,12 @@ The TypeScript SDK for the IpGeolocationApi3 API — a type-safe, entity-oriente
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/ip-geolocation-api3
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/ip-geolocation-api3-sdk/releases](https://github.com/voxgig-sdk/ip-geolocation-api3-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { IpGeolocationApi3SDK } from 'ip-geolocation-api3'
+import { IpGeolocationApi3SDK } from '@voxgig-sdk/ip-geolocation-api3'
 
-const client = new IpGeolocationApi3SDK({
-  apikey: process.env.IP-GEOLOCATION-API3_APIKEY,
-})
+const client = new IpGeolocationApi3SDK()
 ```
 
 ### 3. Load a json
 
 ```ts
-const result = await client.Json().load({ id: 'example_id' })
+const result = await client.json.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = IpGeolocationApi3SDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.json.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new IpGeolocationApi3SDK({ apikey: '...' })
+const client = new IpGeolocationApi3SDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.json
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new IpGeolocationApi3SDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new IpGeolocationApi3SDK({
 Create a `.env.local` file at the project root:
 
 ```
-IP-GEOLOCATION-API3_TEST_LIVE=TRUE
-IP-GEOLOCATION-API3_APIKEY=<your-key>
+IP_GEOLOCATION_API3_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new IpGeolocationApi3SDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new IpGeolocationApi3SDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -290,7 +287,7 @@ API path: `/json/{query}`
 
 ### Json
 
-Create an instance: `const json = client.Json()`
+Create an instance: `const json = client.json`
 
 #### Operations
 
@@ -331,7 +328,7 @@ Create an instance: `const json = client.Json()`
 #### Example: Load
 
 ```ts
-const json = await client.Json().load({ id: 'json_id' })
+const json = await client.json.load({ id: 'json_id' })
 ```
 
 
@@ -392,7 +389,7 @@ ip-geolocation-api3/
 Import the SDK from the package root:
 
 ```ts
-import { IpGeolocationApi3SDK } from 'ip-geolocation-api3'
+import { IpGeolocationApi3SDK } from '@voxgig-sdk/ip-geolocation-api3'
 ```
 
 ### Entity state
@@ -402,11 +399,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const json = client.json
+await json.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// json.data() now returns the loaded json data
+// json.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

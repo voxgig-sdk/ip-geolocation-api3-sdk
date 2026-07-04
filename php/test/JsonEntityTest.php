@@ -49,8 +49,7 @@ class JsonEntityTest extends TestCase
         // LOAD
         $json_ref01_ent = $client->Json(null);
         $json_ref01_match_dt0 = [];
-        [$json_ref01_data_dt0_loaded, $err] = $json_ref01_ent->load($json_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $json_ref01_data_dt0_loaded = $json_ref01_ent->load($json_ref01_match_dt0, null);
         $this->assertNotNull($json_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function json_basic_setup($extra)
         "IPGEOLOCATIONAPI__TEST_JSON_ENTID" => $idmap,
         "IPGEOLOCATIONAPI__TEST_LIVE" => "FALSE",
         "IPGEOLOCATIONAPI__TEST_EXPLAIN" => "FALSE",
-        "IPGEOLOCATIONAPI__APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function json_basic_setup($extra)
     if ($env["IPGEOLOCATIONAPI__TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["IPGEOLOCATIONAPI__APIKEY"],
             ],
             $extra ?? [],
         ]);

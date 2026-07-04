@@ -49,8 +49,7 @@ class TestJsonEntity:
         # LOAD
         json_ref01_ent = client.Json(None)
         json_ref01_match_dt0 = {}
-        json_ref01_data_dt0_loaded, err = json_ref01_ent.load(json_ref01_match_dt0, None)
-        assert err is None
+        json_ref01_data_dt0_loaded = json_ref01_ent.load(json_ref01_match_dt0, None)
         assert json_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _json_basic_setup(extra):
         "IPGEOLOCATIONAPI__TEST_JSON_ENTID": idmap,
         "IPGEOLOCATIONAPI__TEST_LIVE": "FALSE",
         "IPGEOLOCATIONAPI__TEST_EXPLAIN": "FALSE",
-        "IPGEOLOCATIONAPI__APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _json_basic_setup(extra):
     if env.get("IPGEOLOCATIONAPI__TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("IPGEOLOCATIONAPI__APIKEY"),
             },
             extra or {},
         ])

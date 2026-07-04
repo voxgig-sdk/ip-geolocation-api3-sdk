@@ -245,6 +245,9 @@ func (sdk *IpGeolocationApi3SDK) Direct(fetchargs map[string]any) (map[string]an
 }
 
 
+// Json returns a Json entity bound to this client.
+// Idiomatic usage: client.Json(nil).List(nil, nil) or
+// client.Json(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *IpGeolocationApi3SDK) Json(data map[string]any) IpGeolocationApi3Entity {
 	return NewJsonEntityFunc(sdk, data)
 }

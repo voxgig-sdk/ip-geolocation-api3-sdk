@@ -15,9 +15,6 @@ module IpGeolocationApi3Config
       },
       "options" => {
         "base" => "http://ip-api.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -222,6 +219,7 @@ module IpGeolocationApi3Config
                         "orig" => "query",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                     "query" => [

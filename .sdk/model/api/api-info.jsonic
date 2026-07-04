@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         url: "https://ip-api.com/docs/api:json"
       }

@@ -2,6 +2,8 @@
 
 import { JsonEntity } from './entity/JsonEntity'
 
+export type * from './IpGeolocationApi3Types'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class IpGeolocationApi3SDK {
 
 
 
+  _json?: JsonEntity
+
+  // Idiomatic facade: `client.json.list()` / `client.json.load({ id })`.
+  get json(): JsonEntity {
+    return (this._json ??= new JsonEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.json` instead. */
   Json(data?: any) {
     const self = this
     return new JsonEntity(self,data)
