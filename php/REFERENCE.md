@@ -8,7 +8,7 @@ Complete API reference for the IpGeolocationApi3 PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/ip-geolocation-api3_sdk.php';
+require_once __DIR__ . '/ipgeolocationapi3_sdk.php';
 
 $client = new IpGeolocationApi3SDK($options);
 ```
@@ -45,11 +45,11 @@ $client = IpGeolocationApi3SDK::test();
 
 Create a new `JsonEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): IpGeolocationApi3Utility`
 
 Return a copy of the SDK utility object.
 
@@ -92,31 +92,31 @@ $json = $client->Json();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `as` | ``$STRING`` | No |  |
-| `asname` | ``$STRING`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `continent` | ``$STRING`` | No |  |
-| `continent_code` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `country_code` | ``$STRING`` | No |  |
-| `currency` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `hosting` | ``$BOOLEAN`` | No |  |
-| `isp` | ``$STRING`` | No |  |
-| `lat` | ``$NUMBER`` | No |  |
-| `lon` | ``$NUMBER`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `mobile` | ``$BOOLEAN`` | No |  |
-| `offset` | ``$INTEGER`` | No |  |
-| `org` | ``$STRING`` | No |  |
-| `proxy` | ``$BOOLEAN`` | No |  |
-| `query` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `region_name` | ``$STRING`` | No |  |
-| `reverse` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
-| `timezone` | ``$STRING`` | No |  |
-| `zip` | ``$STRING`` | No |  |
+| `as` | `string` | No |  |
+| `asname` | `string` | No |  |
+| `city` | `string` | No |  |
+| `continent` | `string` | No |  |
+| `continent_code` | `string` | No |  |
+| `country` | `string` | No |  |
+| `country_code` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `district` | `string` | No |  |
+| `hosting` | `bool` | No |  |
+| `isp` | `string` | No |  |
+| `lat` | `float` | No |  |
+| `lon` | `float` | No |  |
+| `message` | `string` | No |  |
+| `mobile` | `bool` | No |  |
+| `offset` | `int` | No |  |
+| `org` | `string` | No |  |
+| `proxy` | `bool` | No |  |
+| `query` | `string` | No |  |
+| `region` | `string` | No |  |
+| `region_name` | `string` | No |  |
+| `reverse` | `string` | No |  |
+| `status` | `string` | Yes |  |
+| `timezone` | `string` | No |  |
+| `zip` | `string` | No |  |
 
 ### Operations
 
@@ -130,19 +130,19 @@ $result = $client->Json()->load(["id" => "json_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -151,7 +151,7 @@ Set the entity match criteria.
 Create a new `JsonEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

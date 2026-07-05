@@ -8,7 +8,7 @@ Complete API reference for the IpGeolocationApi3 Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'ip-geolocation-api3_sdk'
+require_relative 'IpGeolocationApi3_sdk'
 
 client = IpGeolocationApi3SDK.new(options)
 ```
@@ -93,31 +93,31 @@ json = client.Json
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `as` | ``$STRING`` | No |  |
-| `asname` | ``$STRING`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `continent` | ``$STRING`` | No |  |
-| `continent_code` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `country_code` | ``$STRING`` | No |  |
-| `currency` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `hosting` | ``$BOOLEAN`` | No |  |
-| `isp` | ``$STRING`` | No |  |
-| `lat` | ``$NUMBER`` | No |  |
-| `lon` | ``$NUMBER`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `mobile` | ``$BOOLEAN`` | No |  |
-| `offset` | ``$INTEGER`` | No |  |
-| `org` | ``$STRING`` | No |  |
-| `proxy` | ``$BOOLEAN`` | No |  |
-| `query` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `region_name` | ``$STRING`` | No |  |
-| `reverse` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
-| `timezone` | ``$STRING`` | No |  |
-| `zip` | ``$STRING`` | No |  |
+| `as` | `String` | No |  |
+| `asname` | `String` | No |  |
+| `city` | `String` | No |  |
+| `continent` | `String` | No |  |
+| `continent_code` | `String` | No |  |
+| `country` | `String` | No |  |
+| `country_code` | `String` | No |  |
+| `currency` | `String` | No |  |
+| `district` | `String` | No |  |
+| `hosting` | `Boolean` | No |  |
+| `isp` | `String` | No |  |
+| `lat` | `Float` | No |  |
+| `lon` | `Float` | No |  |
+| `message` | `String` | No |  |
+| `mobile` | `Boolean` | No |  |
+| `offset` | `Integer` | No |  |
+| `org` | `String` | No |  |
+| `proxy` | `Boolean` | No |  |
+| `query` | `String` | No |  |
+| `region` | `String` | No |  |
+| `region_name` | `String` | No |  |
+| `reverse` | `String` | No |  |
+| `status` | `String` | Yes |  |
+| `timezone` | `String` | No |  |
+| `zip` | `String` | No |  |
 
 ### Operations
 

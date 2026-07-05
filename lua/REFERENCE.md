@@ -90,31 +90,31 @@ local json = client:Json(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `as` | ``$STRING`` | No |  |
-| `asname` | ``$STRING`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `continent` | ``$STRING`` | No |  |
-| `continent_code` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `country_code` | ``$STRING`` | No |  |
-| `currency` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `hosting` | ``$BOOLEAN`` | No |  |
-| `isp` | ``$STRING`` | No |  |
-| `lat` | ``$NUMBER`` | No |  |
-| `lon` | ``$NUMBER`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `mobile` | ``$BOOLEAN`` | No |  |
-| `offset` | ``$INTEGER`` | No |  |
-| `org` | ``$STRING`` | No |  |
-| `proxy` | ``$BOOLEAN`` | No |  |
-| `query` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `region_name` | ``$STRING`` | No |  |
-| `reverse` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
-| `timezone` | ``$STRING`` | No |  |
-| `zip` | ``$STRING`` | No |  |
+| `as` | `string` | No |  |
+| `asname` | `string` | No |  |
+| `city` | `string` | No |  |
+| `continent` | `string` | No |  |
+| `continent_code` | `string` | No |  |
+| `country` | `string` | No |  |
+| `country_code` | `string` | No |  |
+| `currency` | `string` | No |  |
+| `district` | `string` | No |  |
+| `hosting` | `boolean` | No |  |
+| `isp` | `string` | No |  |
+| `lat` | `number` | No |  |
+| `lon` | `number` | No |  |
+| `message` | `string` | No |  |
+| `mobile` | `boolean` | No |  |
+| `offset` | `number` | No |  |
+| `org` | `string` | No |  |
+| `proxy` | `boolean` | No |  |
+| `query` | `string` | No |  |
+| `region` | `string` | No |  |
+| `region_name` | `string` | No |  |
+| `reverse` | `string` | No |  |
+| `status` | `string` | Yes |  |
+| `timezone` | `string` | No |  |
+| `zip` | `string` | No |  |
 
 ### Operations
 

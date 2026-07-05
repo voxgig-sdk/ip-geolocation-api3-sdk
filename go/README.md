@@ -4,6 +4,8 @@
 
 The Golang SDK for the IpGeolocationApi3 API — an entity-oriented client using standard Go conventions. No generics required; data flows as `map[string]any`.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client.Json(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -49,12 +51,41 @@ func main() {
     client := sdk.New()
 
     // Load a single json — the value is the loaded record.
-    json, err := client.Json(nil).Load(map[string]any{"id": "example_id"}, nil)
+    json, err := client.Json(nil).Load(map[string]any{"id": "example"}, nil)
     if err != nil {
         panic(err)
     }
     fmt.Println(json)
 }
+```
+
+
+## Error handling
+
+Every entity operation returns `(value, error)`. Check `err` before
+using the value — there is no exception to catch:
+
+```go
+json, err := client.Json(nil).Load(map[string]any{"id": "example_id"}, nil)
+if err != nil {
+    // handle err
+    return
+}
+_ = json
+```
+
+`Direct` follows the same `(value, error)` convention:
+
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
+    "method": "GET",
+    "params": map[string]any{"id": "example_id"},
+})
+if err != nil {
+    // handle err
+}
+_ = result
 ```
 
 
@@ -110,7 +141,7 @@ json, err := client.Json(nil).Load(
 if err != nil {
     panic(err)
 }
-fmt.Println(json) // the loaded mock data
+fmt.Println(json) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -196,10 +227,6 @@ All entities implement the `IpGeolocationApi3Entity` interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria. |
-| `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria. |
-| `Create` | `(reqdata, ctrl map[string]any) (any, error)` | Create a new entity. |
-| `Update` | `(reqdata, ctrl map[string]any) (any, error)` | Update an existing entity. |
-| `Remove` | `(reqmatch, ctrl map[string]any) (any, error)` | Remove an entity. |
 | `Data` | `(args ...any) any` | Get or set entity data. |
 | `Match` | `(args ...any) any` | Get or set entity match criteria. |
 | `Make` | `() Entity` | Create a new instance with the same options. |
@@ -212,8 +239,7 @@ operation's data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
-| `List` | a `[]any` of entity records |
+| `Load` | the entity record (`map[string]any`) |
 
 Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
@@ -221,7 +247,7 @@ slice):
 
     json, err := client.Json(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil { /* handle */ }
-    // json is the loaded record
+    // json is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -281,31 +307,31 @@ Create an instance: `json := client.Json(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `as` | ``$STRING`` |  |
-| `asname` | ``$STRING`` |  |
-| `city` | ``$STRING`` |  |
-| `continent` | ``$STRING`` |  |
-| `continent_code` | ``$STRING`` |  |
-| `country` | ``$STRING`` |  |
-| `country_code` | ``$STRING`` |  |
-| `currency` | ``$STRING`` |  |
-| `district` | ``$STRING`` |  |
-| `hosting` | ``$BOOLEAN`` |  |
-| `isp` | ``$STRING`` |  |
-| `lat` | ``$NUMBER`` |  |
-| `lon` | ``$NUMBER`` |  |
-| `message` | ``$STRING`` |  |
-| `mobile` | ``$BOOLEAN`` |  |
-| `offset` | ``$INTEGER`` |  |
-| `org` | ``$STRING`` |  |
-| `proxy` | ``$BOOLEAN`` |  |
-| `query` | ``$STRING`` |  |
-| `region` | ``$STRING`` |  |
-| `region_name` | ``$STRING`` |  |
-| `reverse` | ``$STRING`` |  |
-| `status` | ``$STRING`` |  |
-| `timezone` | ``$STRING`` |  |
-| `zip` | ``$STRING`` |  |
+| `as` | `string` |  |
+| `asname` | `string` |  |
+| `city` | `string` |  |
+| `continent` | `string` |  |
+| `continent_code` | `string` |  |
+| `country` | `string` |  |
+| `country_code` | `string` |  |
+| `currency` | `string` |  |
+| `district` | `string` |  |
+| `hosting` | `bool` |  |
+| `isp` | `string` |  |
+| `lat` | `float64` |  |
+| `lon` | `float64` |  |
+| `message` | `string` |  |
+| `mobile` | `bool` |  |
+| `offset` | `int` |  |
+| `org` | `string` |  |
+| `proxy` | `bool` |  |
+| `query` | `string` |  |
+| `region` | `string` |  |
+| `region_name` | `string` |  |
+| `reverse` | `string` |  |
+| `status` | `string` |  |
+| `timezone` | `string` |  |
+| `zip` | `string` |  |
 
 #### Example: Load
 
@@ -318,12 +344,16 @@ fmt.Println(json) // the loaded record
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -340,9 +370,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller. An unexpected panic triggers the
-`PreUnexpected` hook.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -390,7 +420,7 @@ stores the returned data and match criteria internally.
 json := client.Json(nil)
 json.Load(map[string]any{"id": "example_id"}, nil)
 
-// json.Data() now returns the loaded json data
+// json.Data() now returns the json data from the last load
 // json.Match() returns the last match criteria
 ```
 

@@ -221,7 +221,7 @@ class IpGeolocationApi3SDK:
 
 
     def Json(self, data=None) -> "JsonEntity":
-        """Entity factory: client.Json().list({}) / client.Json().load({"id": ...})."""
+        """Entity factory: client.Json().list() / client.Json().load({"id": ...})."""
         from entity.json_entity import JsonEntity
         return JsonEntity(self, data)
 

@@ -8,7 +8,7 @@ Complete API reference for the IpGeolocationApi3 Python SDK.
 ### Constructor
 
 ```python
-from ip-geolocation-api3_sdk import IpGeolocationApi3SDK
+from ipgeolocationapi3_sdk import IpGeolocationApi3SDK
 
 client = IpGeolocationApi3SDK(options)
 ```
@@ -87,31 +87,31 @@ json = client.Json()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `as` | ``$STRING`` | No |  |
-| `asname` | ``$STRING`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `continent` | ``$STRING`` | No |  |
-| `continent_code` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `country_code` | ``$STRING`` | No |  |
-| `currency` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `hosting` | ``$BOOLEAN`` | No |  |
-| `isp` | ``$STRING`` | No |  |
-| `lat` | ``$NUMBER`` | No |  |
-| `lon` | ``$NUMBER`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `mobile` | ``$BOOLEAN`` | No |  |
-| `offset` | ``$INTEGER`` | No |  |
-| `org` | ``$STRING`` | No |  |
-| `proxy` | ``$BOOLEAN`` | No |  |
-| `query` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `region_name` | ``$STRING`` | No |  |
-| `reverse` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | Yes |  |
-| `timezone` | ``$STRING`` | No |  |
-| `zip` | ``$STRING`` | No |  |
+| `as` | `str` | No |  |
+| `asname` | `str` | No |  |
+| `city` | `str` | No |  |
+| `continent` | `str` | No |  |
+| `continent_code` | `str` | No |  |
+| `country` | `str` | No |  |
+| `country_code` | `str` | No |  |
+| `currency` | `str` | No |  |
+| `district` | `str` | No |  |
+| `hosting` | `bool` | No |  |
+| `isp` | `str` | No |  |
+| `lat` | `float` | No |  |
+| `lon` | `float` | No |  |
+| `message` | `str` | No |  |
+| `mobile` | `bool` | No |  |
+| `offset` | `int` | No |  |
+| `org` | `str` | No |  |
+| `proxy` | `bool` | No |  |
+| `query` | `str` | No |  |
+| `region` | `str` | No |  |
+| `region_name` | `str` | No |  |
+| `reverse` | `str` | No |  |
+| `status` | `str` | Yes |  |
+| `timezone` | `str` | No |  |
+| `zip` | `str` | No |  |
 
 ### Operations
 
