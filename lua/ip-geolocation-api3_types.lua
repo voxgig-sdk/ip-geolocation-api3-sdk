@@ -34,7 +34,7 @@
 ---@field zip? string
 
 ---@class JsonLoadMatch
----@field id string
+---@field id? string
 
 local M = {}
 

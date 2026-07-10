@@ -15,10 +15,10 @@ main: {
           url: "http://ip-api.com"
         }
       ]
+      summary: "This API allows users to retrieve geolocation information from an IP address or domain name."
       termsOfService: "https://ip-api.com"
       title: "IP Geolocation API"
       version: "1.0.0"
+      website: "http://ip-api.com"
     }
   }
-}
-

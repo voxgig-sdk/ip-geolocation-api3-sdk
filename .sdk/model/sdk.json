@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -440,15 +437,18 @@
           "url": "https://ip-api.com/docs/api:json"
         },
         "description": "This API allows users to retrieve geolocation information from an IP address or domain name. It provides details such as country, city, region, latitude, longitude, and more in a JSON format without requiring an API key.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Main API server (HTTP only for free tier)",
             "url": "http://ip-api.com"
           }
         ],
+        "summary": "This API allows users to retrieve geolocation information from an IP address or domain name.",
         "termsOfService": "https://ip-api.com",
         "title": "IP Geolocation API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "http://ip-api.com"
       },
       "option": {},
       "target": {
@@ -501,6 +501,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -551,6 +554,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

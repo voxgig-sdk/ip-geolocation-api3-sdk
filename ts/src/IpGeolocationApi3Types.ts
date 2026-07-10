@@ -34,6 +34,6 @@ export interface Json {
 }
 
 export interface JsonLoadMatch {
-  id: string
+  id?: string
 }
 

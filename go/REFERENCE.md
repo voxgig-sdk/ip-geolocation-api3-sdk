@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 json := client.Json(nil)
+fmt.Println(json.GetName()) // "json"
 ```
 
 ### Fields
@@ -131,6 +132,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Json(nil).Load(map[string]any{"id": "json_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

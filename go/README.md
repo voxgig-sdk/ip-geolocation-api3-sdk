@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single json — the value is the loaded record.
-    json, err := client.Json(nil).Load(map[string]any{"id": "example"}, nil)
+    json, err := client.Json(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
