@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- IpGeolocationApi3 SDK configuration
 
 local function make_config()
   return {
