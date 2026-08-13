@@ -10,9 +10,9 @@ export interface Json {
   asname?: string
   city?: string
   continent?: string
-  continent_code?: string
+  continentCode?: string
   country?: string
-  country_code?: string
+  countryCode?: string
   currency?: string
   district?: string
   hosting?: boolean
@@ -26,7 +26,7 @@ export interface Json {
   proxy?: boolean
   query?: string
   region?: string
-  region_name?: string
+  regionName?: string
   reverse?: string
   status: string
   timezone?: string

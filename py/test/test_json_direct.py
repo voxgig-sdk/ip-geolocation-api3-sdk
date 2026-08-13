@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from ipgeolocationapi3_sdk.utility.voxgig_struct import voxgig_struct as vs
 from ipgeolocationapi3_sdk import IpGeolocationApi3SDK
-from core import helpers
+from ipgeolocationapi3_sdk.core import helpers
 from test import runner
 
 
@@ -63,11 +63,11 @@ def _json_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "IPGEOLOCATIONAPI__TEST_JSON_ENTID": {},
-        "IPGEOLOCATIONAPI__TEST_LIVE": "FALSE",
+        "IP_GEOLOCATION_API3_TEST_JSON_ENTID": {},
+        "IP_GEOLOCATION_API3_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("IPGEOLOCATIONAPI__TEST_LIVE") == "TRUE"
+    live = env.get("IP_GEOLOCATION_API3_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

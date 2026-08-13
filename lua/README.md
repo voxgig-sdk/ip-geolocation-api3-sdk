@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local json, err = client:Json():load({ id = "example_id" })
+local json, err = client:Json():load()
 if err then error(err) end
 ```
 
@@ -229,9 +229,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `asname` |  |
 | `city` |  |
 | `continent` |  |
-| `continent_code` |  |
+| `continentCode` |  |
 | `country` |  |
-| `country_code` |  |
+| `countryCode` |  |
 | `currency` |  |
 | `district` |  |
 | `hosting` |  |
@@ -245,7 +245,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `proxy` |  |
 | `query` |  |
 | `region` |  |
-| `region_name` |  |
+| `regionName` |  |
 | `reverse` |  |
 | `status` |  |
 | `timezone` |  |
@@ -278,9 +278,9 @@ Create an instance: `local json = client:Json(nil)`
 | `asname` | `string` |  |
 | `city` | `string` |  |
 | `continent` | `string` |  |
-| `continent_code` | `string` |  |
+| `continentCode` | `string` |  |
 | `country` | `string` |  |
-| `country_code` | `string` |  |
+| `countryCode` | `string` |  |
 | `currency` | `string` |  |
 | `district` | `string` |  |
 | `hosting` | `boolean` |  |
@@ -294,7 +294,7 @@ Create an instance: `local json = client:Json(nil)`
 | `proxy` | `boolean` |  |
 | `query` | `string` |  |
 | `region` | `string` |  |
-| `region_name` | `string` |  |
+| `regionName` | `string` |  |
 | `reverse` | `string` |  |
 | `status` | `string` |  |
 | `timezone` | `string` |  |
@@ -384,7 +384,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local json = client:Json()
-json:load({ id = "example_id" })
+json:load()
 
 -- json:data_get() now returns the json data from the last load
 -- json:match_get() returns the last match criteria

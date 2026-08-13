@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = IpGeolocationApi3SDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = IpGeolocationApi3SDK.test({
+  entity: {
+    json: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const json = await client.Json().load({ id: 'test01' })
-// json is a bare Json populated with mock data
+// json is the Json entity, populated with mock data
+// — call json.data() for the record itself
 console.log(json)
 ```
 
@@ -182,7 +191,7 @@ require_once 'ipgeolocationapi3_sdk.php';
 $client = new IpGeolocationApi3SDK();
 
 
-// Load a specific json (returns the bare record; throws on error)
+// Load a specific json (returns the ENTITY; call data_get() for the record; throws on error)
 $json = $client->Json()->load(["id" => "example_id"]);
 print_r($json);
 ```
@@ -210,7 +219,7 @@ require_relative "IpGeolocationApi3_sdk"
 client = IpGeolocationApi3SDK.new
 
 
-# Load a specific json (returns the bare record; raises on error)
+# Load a specific json (returns the ENTITY; call data_get for the record)
 json = client.Json.load({ "id" => "example_id" })
 puts json
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://ip-api.com/docs/api:json](https://ip-api.com/docs/api:json)
 

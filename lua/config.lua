@@ -54,7 +54,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "continent_code",
+            ["name"] = "continentCode",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 4,
@@ -68,7 +68,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "country_code",
+            ["name"] = "countryCode",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 6,
@@ -166,7 +166,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "region_name",
+            ["name"] = "regionName",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 20,
@@ -250,6 +250,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/json/{query}",
                 ["parts"] = {
@@ -307,6 +308,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/json/",
                 ["parts"] = {

@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-json, err := client.Json(nil).Load(map[string]any{"id": "example_id"}, nil)
+json, err := client.Json(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
@@ -262,9 +262,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"asname"` |  |
 | `"city"` |  |
 | `"continent"` |  |
-| `"continent_code"` |  |
+| `"continentCode"` |  |
 | `"country"` |  |
-| `"country_code"` |  |
+| `"countryCode"` |  |
 | `"currency"` |  |
 | `"district"` |  |
 | `"hosting"` |  |
@@ -278,7 +278,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"proxy"` |  |
 | `"query"` |  |
 | `"region"` |  |
-| `"region_name"` |  |
+| `"regionName"` |  |
 | `"reverse"` |  |
 | `"status"` |  |
 | `"timezone"` |  |
@@ -311,9 +311,9 @@ Create an instance: `json := client.Json(nil)`
 | `asname` | `string` |  |
 | `city` | `string` |  |
 | `continent` | `string` |  |
-| `continent_code` | `string` |  |
+| `continentCode` | `string` |  |
 | `country` | `string` |  |
-| `country_code` | `string` |  |
+| `countryCode` | `string` |  |
 | `currency` | `string` |  |
 | `district` | `string` |  |
 | `hosting` | `bool` |  |
@@ -327,7 +327,7 @@ Create an instance: `json := client.Json(nil)`
 | `proxy` | `bool` |  |
 | `query` | `string` |  |
 | `region` | `string` |  |
-| `region_name` | `string` |  |
+| `regionName` | `string` |  |
 | `reverse` | `string` |  |
 | `status` | `string` |  |
 | `timezone` | `string` |  |
@@ -418,7 +418,7 @@ stores the returned data and match criteria internally.
 
 ```go
 json := client.Json(nil)
-json.Load(map[string]any{"id": "example_id"}, nil)
+json.Load(nil, nil)
 
 // json.Data() now returns the json data from the last load
 // json.Match() returns the last match criteria

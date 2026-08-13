@@ -34,7 +34,7 @@ client = IpGeolocationApi3SDK.new
 
 ```ruby
 begin
-  # load returns the bare Json record (raises on error).
+  # load returns the ENTITY — call data_get for the Json record (raises on error).
   json = client.Json.load({ "id" => "example_id" })
   puts json
 rescue => err
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  json = client.Json.load({ "id" => "example_id" })
+  json = client.Json.load()
 rescue => err
   warn "load failed: #{err}"
 end
@@ -120,7 +120,8 @@ client = IpGeolocationApi3SDK.test({
   "entity" => { "json" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 json = client.Json.load({ "id" => "test01" })
 puts json
 ```
@@ -241,9 +242,9 @@ returns a result `Hash` with these keys:
 | `asname` |  |
 | `city` |  |
 | `continent` |  |
-| `continent_code` |  |
+| `continentCode` |  |
 | `country` |  |
-| `country_code` |  |
+| `countryCode` |  |
 | `currency` |  |
 | `district` |  |
 | `hosting` |  |
@@ -257,7 +258,7 @@ returns a result `Hash` with these keys:
 | `proxy` |  |
 | `query` |  |
 | `region` |  |
-| `region_name` |  |
+| `regionName` |  |
 | `reverse` |  |
 | `status` |  |
 | `timezone` |  |
@@ -290,9 +291,9 @@ Create an instance: `json = client.Json`
 | `asname` | `String` |  |
 | `city` | `String` |  |
 | `continent` | `String` |  |
-| `continent_code` | `String` |  |
+| `continentCode` | `String` |  |
 | `country` | `String` |  |
-| `country_code` | `String` |  |
+| `countryCode` | `String` |  |
 | `currency` | `String` |  |
 | `district` | `String` |  |
 | `hosting` | `Boolean` |  |
@@ -306,7 +307,7 @@ Create an instance: `json = client.Json`
 | `proxy` | `Boolean` |  |
 | `query` | `String` |  |
 | `region` | `String` |  |
-| `region_name` | `String` |  |
+| `regionName` | `String` |  |
 | `reverse` | `String` |  |
 | `status` | `String` |  |
 | `timezone` | `String` |  |
@@ -315,7 +316,7 @@ Create an instance: `json = client.Json`
 #### Example: Load
 
 ```ruby
-# load returns the bare Json record (raises on error).
+# load returns the ENTITY — call data_get for the Json record (raises on error).
 json = client.Json.load({ "id" => "json_id" })
 ```
 
@@ -397,7 +398,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 json = client.Json
-json.load({ "id" => "example_id" })
+json.load()
 
 # json.data_get now returns the json data from the last load
 # json.match_get returns the last match criteria

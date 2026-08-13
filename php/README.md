@@ -35,7 +35,7 @@ $client = new IpGeolocationApi3SDK();
 
 ```php
 try {
-    // load() returns the bare Json record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Json record (throws on error).
     $json = $client->Json()->load(["id" => "example_id"]);
     print_r($json);
 } catch (\Throwable $err) {
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $json = $client->Json()->load(["id" => "example_id"]);
+    $json = $client->Json()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -126,7 +126,8 @@ $client = IpGeolocationApi3SDK::test([
     "entity" => ["json" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $json = $client->Json()->load(["id" => "test01"]);
 print_r($json);
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -251,9 +252,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `asname` |  |
 | `city` |  |
 | `continent` |  |
-| `continent_code` |  |
+| `continentCode` |  |
 | `country` |  |
-| `country_code` |  |
+| `countryCode` |  |
 | `currency` |  |
 | `district` |  |
 | `hosting` |  |
@@ -267,7 +268,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `proxy` |  |
 | `query` |  |
 | `region` |  |
-| `region_name` |  |
+| `regionName` |  |
 | `reverse` |  |
 | `status` |  |
 | `timezone` |  |
@@ -300,9 +301,9 @@ Create an instance: `$json = $client->Json();`
 | `asname` | `string` |  |
 | `city` | `string` |  |
 | `continent` | `string` |  |
-| `continent_code` | `string` |  |
+| `continentCode` | `string` |  |
 | `country` | `string` |  |
-| `country_code` | `string` |  |
+| `countryCode` | `string` |  |
 | `currency` | `string` |  |
 | `district` | `string` |  |
 | `hosting` | `bool` |  |
@@ -316,7 +317,7 @@ Create an instance: `$json = $client->Json();`
 | `proxy` | `bool` |  |
 | `query` | `string` |  |
 | `region` | `string` |  |
-| `region_name` | `string` |  |
+| `regionName` | `string` |  |
 | `reverse` | `string` |  |
 | `status` | `string` |  |
 | `timezone` | `string` |  |
@@ -325,7 +326,7 @@ Create an instance: `$json = $client->Json();`
 #### Example: Load
 
 ```php
-// load() returns the bare Json record (throws on error).
+// load() returns the ENTITY — call data_get() for the Json record (throws on error).
 $json = $client->Json()->load(["id" => "json_id"]);
 ```
 
@@ -407,7 +408,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $json = $client->Json();
-$json->load(["id" => "example_id"]);
+$json->load();
 
 // $json->data_get() now returns the json data from the last load
 // $json->match_get() returns the last match criteria

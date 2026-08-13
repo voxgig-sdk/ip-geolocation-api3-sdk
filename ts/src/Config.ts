@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'IpGeolocationApi3',
   }
 
 
@@ -84,7 +84,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "continent_code",
+          "name": "continentCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
@@ -98,7 +98,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "country_code",
+          "name": "countryCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
@@ -196,7 +196,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "region_name",
+          "name": "regionName",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
@@ -280,6 +280,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/json/{query}",
               "parts": [
@@ -337,6 +338,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/json/",
               "parts": [

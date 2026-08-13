@@ -54,7 +54,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "continent_code",
+						"name": "continentCode",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
@@ -68,7 +68,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "country_code",
+						"name": "countryCode",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 6,
@@ -166,7 +166,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "region_name",
+						"name": "regionName",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 20,
@@ -250,6 +250,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/json/{query}",
 								"parts": []any{
@@ -307,6 +308,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/json/",
 								"parts": []any{
@@ -326,7 +328,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

@@ -26,7 +26,7 @@ main: kit: entity: json: {
       type: "`$STRING`"
     }
     {
-      name: "continent_code"
+      name: "continentCode"
       req: false
       type: "`$STRING`"
     }
@@ -36,7 +36,7 @@ main: kit: entity: json: {
       type: "`$STRING`"
     }
     {
-      name: "country_code"
+      name: "countryCode"
       req: false
       type: "`$STRING`"
     }
@@ -106,7 +106,7 @@ main: kit: entity: json: {
       type: "`$STRING`"
     }
     {
-      name: "region_name"
+      name: "regionName"
       req: false
       type: "`$STRING`"
     }

@@ -38,7 +38,7 @@ client = IpGeolocationApi3SDK()
 
 ### 3. Load a json
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    json = client.Json().load({"id": "example_id"})
+    json = client.Json().load()
     print(json)
 except Exception as err:
     print(f"load failed: {err}")
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = IpGeolocationApi3SDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 json = client.Json().load({"id": "test01"})
 # json contains the mock response record
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -244,9 +245,9 @@ On error, `ok` is `False` and `err` contains the error value.
 | `asname` |  |
 | `city` |  |
 | `continent` |  |
-| `continent_code` |  |
+| `continentCode` |  |
 | `country` |  |
-| `country_code` |  |
+| `countryCode` |  |
 | `currency` |  |
 | `district` |  |
 | `hosting` |  |
@@ -260,7 +261,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `proxy` |  |
 | `query` |  |
 | `region` |  |
-| `region_name` |  |
+| `regionName` |  |
 | `reverse` |  |
 | `status` |  |
 | `timezone` |  |
@@ -293,9 +294,9 @@ Create an instance: `json = client.Json()`
 | `asname` | `str` |  |
 | `city` | `str` |  |
 | `continent` | `str` |  |
-| `continent_code` | `str` |  |
+| `continentCode` | `str` |  |
 | `country` | `str` |  |
-| `country_code` | `str` |  |
+| `countryCode` | `str` |  |
 | `currency` | `str` |  |
 | `district` | `str` |  |
 | `hosting` | `bool` |  |
@@ -309,7 +310,7 @@ Create an instance: `json = client.Json()`
 | `proxy` | `bool` |  |
 | `query` | `str` |  |
 | `region` | `str` |  |
-| `region_name` | `str` |  |
+| `regionName` | `str` |  |
 | `reverse` | `str` |  |
 | `status` | `str` |  |
 | `timezone` | `str` |  |
@@ -398,7 +399,7 @@ stores the returned data and match criteria internally.
 
 ```python
 json = client.Json()
-json.load({"id": "example_id"})
+json.load()
 
 # json.data_get() now returns the json data from the last load
 # json.match_get() returns the last match criteria

@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const json = await client.Json().load({ id: "example_id" })
+  const json = await client.Json().load()
   console.log(json)
 } catch (err) {
   console.error('load failed:', err)
@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = IpGeolocationApi3SDK.test()
 
 const json = await client.Json().load({ id: 'test01' })
-// json is a bare entity populated with mock response data
+// json is the entity, populated with mock response data
+// — call json.data() for the record itself
 console.log(json)
 ```
 
@@ -288,9 +289,9 @@ The `prepare()` method returns:
 | `asname` |  |
 | `city` |  |
 | `continent` |  |
-| `continent_code` |  |
+| `continentCode` |  |
 | `country` |  |
-| `country_code` |  |
+| `countryCode` |  |
 | `currency` |  |
 | `district` |  |
 | `hosting` |  |
@@ -304,7 +305,7 @@ The `prepare()` method returns:
 | `proxy` |  |
 | `query` |  |
 | `region` |  |
-| `region_name` |  |
+| `regionName` |  |
 | `reverse` |  |
 | `status` |  |
 | `timezone` |  |
@@ -337,9 +338,9 @@ Create an instance: `const json = client.Json()`
 | `asname` | `string` |  |
 | `city` | `string` |  |
 | `continent` | `string` |  |
-| `continent_code` | `string` |  |
+| `continentCode` | `string` |  |
 | `country` | `string` |  |
-| `country_code` | `string` |  |
+| `countryCode` | `string` |  |
 | `currency` | `string` |  |
 | `district` | `string` |  |
 | `hosting` | `boolean` |  |
@@ -353,7 +354,7 @@ Create an instance: `const json = client.Json()`
 | `proxy` | `boolean` |  |
 | `query` | `string` |  |
 | `region` | `string` |  |
-| `region_name` | `string` |  |
+| `regionName` | `string` |  |
 | `reverse` | `string` |  |
 | `status` | `string` |  |
 | `timezone` | `string` |  |
@@ -436,7 +437,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const json = client.Json()
-await json.load({ id: "example_id" })
+await json.load()
 
 // json.data() now returns the json data from the last `load`
 // json.match() returns { id: "example_id" }

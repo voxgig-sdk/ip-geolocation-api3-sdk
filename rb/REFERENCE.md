@@ -97,9 +97,9 @@ json = client.Json
 | `asname` | `String` | No |  |
 | `city` | `String` | No |  |
 | `continent` | `String` | No |  |
-| `continent_code` | `String` | No |  |
+| `continentCode` | `String` | No |  |
 | `country` | `String` | No |  |
-| `country_code` | `String` | No |  |
+| `countryCode` | `String` | No |  |
 | `currency` | `String` | No |  |
 | `district` | `String` | No |  |
 | `hosting` | `Boolean` | No |  |
@@ -113,7 +113,7 @@ json = client.Json
 | `proxy` | `Boolean` | No |  |
 | `query` | `String` | No |  |
 | `region` | `String` | No |  |
-| `region_name` | `String` | No |  |
+| `regionName` | `String` | No |  |
 | `reverse` | `String` | No |  |
 | `status` | `String` | Yes |  |
 | `timezone` | `String` | No |  |

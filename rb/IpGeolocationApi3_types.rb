@@ -22,13 +22,13 @@
 # @!attribute [rw] continent
 #   @return [String, nil]
 #
-# @!attribute [rw] continent_code
+# @!attribute [rw] continentCode
 #   @return [String, nil]
 #
 # @!attribute [rw] country
 #   @return [String, nil]
 #
-# @!attribute [rw] country_code
+# @!attribute [rw] countryCode
 #   @return [String, nil]
 #
 # @!attribute [rw] currency
@@ -70,7 +70,7 @@
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] region_name
+# @!attribute [rw] regionName
 #   @return [String, nil]
 #
 # @!attribute [rw] reverse
@@ -89,9 +89,9 @@ Json = Struct.new(
   :asname,
   :city,
   :continent,
-  :continent_code,
+  :continentCode,
   :country,
-  :country_code,
+  :countryCode,
   :currency,
   :district,
   :hosting,
@@ -105,7 +105,7 @@ Json = Struct.new(
   :proxy,
   :query,
   :region,
-  :region_name,
+  :regionName,
   :reverse,
   :status,
   :timezone,

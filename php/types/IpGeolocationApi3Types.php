@@ -19,9 +19,9 @@ class Json
     public ?string $asname = null;
     public ?string $city = null;
     public ?string $continent = null;
-    public ?string $continent_code = null;
+    public ?string $continentCode = null;
     public ?string $country = null;
-    public ?string $country_code = null;
+    public ?string $countryCode = null;
     public ?string $currency = null;
     public ?string $district = null;
     public ?bool $hosting = null;
@@ -35,7 +35,7 @@ class Json
     public ?bool $proxy = null;
     public ?string $query = null;
     public ?string $region = null;
-    public ?string $region_name = null;
+    public ?string $regionName = null;
     public ?string $reverse = null;
     public string $status;
     public ?string $timezone = null;

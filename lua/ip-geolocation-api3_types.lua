@@ -11,9 +11,9 @@
 ---@field asname? string
 ---@field city? string
 ---@field continent? string
----@field continent_code? string
+---@field continentCode? string
 ---@field country? string
----@field country_code? string
+---@field countryCode? string
 ---@field currency? string
 ---@field district? string
 ---@field hosting? boolean
@@ -27,7 +27,7 @@
 ---@field proxy? boolean
 ---@field query? string
 ---@field region? string
----@field region_name? string
+---@field regionName? string
 ---@field reverse? string
 ---@field status string
 ---@field timezone? string

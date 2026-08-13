@@ -96,9 +96,9 @@ $json = $client->Json();
 | `asname` | `string` | No |  |
 | `city` | `string` | No |  |
 | `continent` | `string` | No |  |
-| `continent_code` | `string` | No |  |
+| `continentCode` | `string` | No |  |
 | `country` | `string` | No |  |
-| `country_code` | `string` | No |  |
+| `countryCode` | `string` | No |  |
 | `currency` | `string` | No |  |
 | `district` | `string` | No |  |
 | `hosting` | `bool` | No |  |
@@ -112,7 +112,7 @@ $json = $client->Json();
 | `proxy` | `bool` | No |  |
 | `query` | `string` | No |  |
 | `region` | `string` | No |  |
-| `region_name` | `string` | No |  |
+| `regionName` | `string` | No |  |
 | `reverse` | `string` | No |  |
 | `status` | `string` | Yes |  |
 | `timezone` | `string` | No |  |
