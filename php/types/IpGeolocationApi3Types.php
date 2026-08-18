@@ -45,6 +45,6 @@ class Json
 /** Request payload for Json#load. */
 class JsonLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
 }
 

@@ -116,7 +116,7 @@ Json = Struct.new(
 # Request payload for Json#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 JsonLoadMatch = Struct.new(
   :id,
   keyword_init: true

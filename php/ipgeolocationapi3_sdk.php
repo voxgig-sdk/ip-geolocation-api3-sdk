@@ -40,7 +40,7 @@ class IpGeolocationApi3SDK
         $utility = new IpGeolocationApi3Utility();
         $this->_utility = $utility;
 
-        $config = IpGeolocationApi3Config::make_config();
+        $config = IpGeolocationApi3Config::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

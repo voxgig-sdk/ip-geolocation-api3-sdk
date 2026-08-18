@@ -23,7 +23,7 @@ func NewIpGeolocationApi3SDK(options map[string]any) *IpGeolocationApi3SDK {
 
 	sdk.utility = NewUtility()
 
-	config := MakeConfig()
+	config := SharedConfig()
 
 	sdk.rootctx = sdk.utility.MakeContext(map[string]any{
 		"client":  sdk,

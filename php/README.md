@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $json = $client->Json()->load();
+    $json = $client->Json()->load(["id" => "example_id"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -408,7 +408,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $json = $client->Json();
-$json->load();
+$json->load(["id" => "example_id"]);
 
 // $json->data_get() now returns the json data from the last load
 // $json->match_get() returns the last match criteria

@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-json, err := client.Json(nil).Load(nil, nil)
+json, err := client.Json(nil).Load(map[string]any{"id": "example_id"}, nil)
 if err != nil {
     // handle err
     return
@@ -418,7 +418,7 @@ stores the returned data and match criteria internally.
 
 ```go
 json := client.Json(nil)
-json.Load(nil, nil)
+json.Load(map[string]any{"id": "example_id"}, nil)
 
 // json.Data() now returns the json data from the last load
 // json.Match() returns the last match criteria

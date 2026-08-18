@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  json = client.Json.load()
+  json = client.Json.load({ "id" => "example_id" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -398,7 +398,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 json = client.Json
-json.load()
+json.load({ "id" => "example_id" })
 
 # json.data_get now returns the json data from the last load
 # json.match_get returns the last match criteria

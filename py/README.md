@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    json = client.Json().load()
+    json = client.Json().load({"id": "example_id"})
     print(json)
 except Exception as err:
     print(f"load failed: {err}")
@@ -399,7 +399,7 @@ stores the returned data and match criteria internally.
 
 ```python
 json = client.Json()
-json.load()
+json.load({"id": "example_id"})
 
 # json.data_get() now returns the json data from the last load
 # json.match_get() returns the last match criteria

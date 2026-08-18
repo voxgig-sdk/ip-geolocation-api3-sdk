@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local json, err = client:Json():load()
+local json, err = client:Json():load({ id = "example_id" })
 if err then error(err) end
 ```
 
@@ -384,7 +384,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local json = client:Json()
-json:load()
+json:load({ id = "example_id" })
 
 -- json:data_get() now returns the json data from the last load
 -- json:match_get() returns the last match criteria
