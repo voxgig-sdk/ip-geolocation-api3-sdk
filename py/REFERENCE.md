@@ -87,31 +87,31 @@ json = client.Json()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `as` | `str` | No |  |
-| `asname` | `str` | No |  |
-| `city` | `str` | No |  |
-| `continent` | `str` | No |  |
-| `continentCode` | `str` | No |  |
-| `country` | `str` | No |  |
-| `countryCode` | `str` | No |  |
-| `currency` | `str` | No |  |
-| `district` | `str` | No |  |
-| `hosting` | `bool` | No |  |
-| `isp` | `str` | No |  |
-| `lat` | `float` | No |  |
-| `lon` | `float` | No |  |
-| `message` | `str` | No |  |
-| `mobile` | `bool` | No |  |
-| `offset` | `int` | No |  |
-| `org` | `str` | No |  |
-| `proxy` | `bool` | No |  |
-| `query` | `str` | No |  |
-| `region` | `str` | No |  |
-| `regionName` | `str` | No |  |
-| `reverse` | `str` | No |  |
-| `status` | `str` | Yes |  |
-| `timezone` | `str` | No |  |
-| `zip` | `str` | No |  |
+| `as` | `str` | No | AS number and organization, separated by space (RIR). |
+| `asname` | `str` | No | AS name (RIR). |
+| `city` | `str` | No | City name |
+| `continent` | `str` | No | Continent name |
+| `continentCode` | `str` | No | Two-letter continent code |
+| `country` | `str` | No | Country name |
+| `countryCode` | `str` | No | Two-letter country code (ISO 3166-1 alpha-2) |
+| `currency` | `str` | No | National currency code |
+| `district` | `str` | No | District (subdivision of city) |
+| `hosting` | `bool` | No | Hosting, colocated or data center |
+| `isp` | `str` | No | ISP name |
+| `lat` | `float` | No | Latitude |
+| `lon` | `float` | No | Longitude |
+| `message` | `str` | No | Error message, included only when status is fail. |
+| `mobile` | `bool` | No | Mobile (cellular) connection |
+| `offset` | `int` | No | Timezone UTC DST offset in seconds |
+| `org` | `str` | No | Organization name |
+| `proxy` | `bool` | No | Proxy, VPN or Tor exit address |
+| `query` | `str` | No | IP address or domain used for the query |
+| `region` | `str` | No | Region/state short code (FIPS or ISO) |
+| `regionName` | `str` | No | Region/state name |
+| `reverse` | `str` | No | Reverse DNS of the IP (can delay response) |
+| `status` | `str` | Yes | Status of the query |
+| `timezone` | `str` | No | Timezone (tz database format) |
+| `zip` | `str` | No | Zip/postal code |
 
 ### Operations
 

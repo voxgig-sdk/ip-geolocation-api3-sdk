@@ -92,31 +92,31 @@ $json = $client->Json();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `as` | `string` | No |  |
-| `asname` | `string` | No |  |
-| `city` | `string` | No |  |
-| `continent` | `string` | No |  |
-| `continentCode` | `string` | No |  |
-| `country` | `string` | No |  |
-| `countryCode` | `string` | No |  |
-| `currency` | `string` | No |  |
-| `district` | `string` | No |  |
-| `hosting` | `bool` | No |  |
-| `isp` | `string` | No |  |
-| `lat` | `float` | No |  |
-| `lon` | `float` | No |  |
-| `message` | `string` | No |  |
-| `mobile` | `bool` | No |  |
-| `offset` | `int` | No |  |
-| `org` | `string` | No |  |
-| `proxy` | `bool` | No |  |
-| `query` | `string` | No |  |
-| `region` | `string` | No |  |
-| `regionName` | `string` | No |  |
-| `reverse` | `string` | No |  |
-| `status` | `string` | Yes |  |
-| `timezone` | `string` | No |  |
-| `zip` | `string` | No |  |
+| `as` | `string` | No | AS number and organization, separated by space (RIR). |
+| `asname` | `string` | No | AS name (RIR). |
+| `city` | `string` | No | City name |
+| `continent` | `string` | No | Continent name |
+| `continentCode` | `string` | No | Two-letter continent code |
+| `country` | `string` | No | Country name |
+| `countryCode` | `string` | No | Two-letter country code (ISO 3166-1 alpha-2) |
+| `currency` | `string` | No | National currency code |
+| `district` | `string` | No | District (subdivision of city) |
+| `hosting` | `bool` | No | Hosting, colocated or data center |
+| `isp` | `string` | No | ISP name |
+| `lat` | `float` | No | Latitude |
+| `lon` | `float` | No | Longitude |
+| `message` | `string` | No | Error message, included only when status is fail. |
+| `mobile` | `bool` | No | Mobile (cellular) connection |
+| `offset` | `int` | No | Timezone UTC DST offset in seconds |
+| `org` | `string` | No | Organization name |
+| `proxy` | `bool` | No | Proxy, VPN or Tor exit address |
+| `query` | `string` | No | IP address or domain used for the query |
+| `region` | `string` | No | Region/state short code (FIPS or ISO) |
+| `regionName` | `string` | No | Region/state name |
+| `reverse` | `string` | No | Reverse DNS of the IP (can delay response) |
+| `status` | `string` | Yes | Status of the query |
+| `timezone` | `string` | No | Timezone (tz database format) |
+| `zip` | `string` | No | Zip/postal code |
 
 ### Operations
 

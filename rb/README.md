@@ -238,31 +238,31 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `as` |  |
-| `asname` |  |
-| `city` |  |
-| `continent` |  |
-| `continentCode` |  |
-| `country` |  |
-| `countryCode` |  |
-| `currency` |  |
-| `district` |  |
-| `hosting` |  |
-| `isp` |  |
-| `lat` |  |
-| `lon` |  |
-| `message` |  |
-| `mobile` |  |
-| `offset` |  |
-| `org` |  |
-| `proxy` |  |
-| `query` |  |
-| `region` |  |
-| `regionName` |  |
-| `reverse` |  |
-| `status` |  |
-| `timezone` |  |
-| `zip` |  |
+| `as` | AS number and organization, separated by space (RIR). |
+| `asname` | AS name (RIR). |
+| `city` | City name |
+| `continent` | Continent name |
+| `continentCode` | Two-letter continent code |
+| `country` | Country name |
+| `countryCode` | Two-letter country code (ISO 3166-1 alpha-2) |
+| `currency` | National currency code |
+| `district` | District (subdivision of city) |
+| `hosting` | Hosting, colocated or data center |
+| `isp` | ISP name |
+| `lat` | Latitude |
+| `lon` | Longitude |
+| `message` | Error message, included only when status is fail. |
+| `mobile` | Mobile (cellular) connection |
+| `offset` | Timezone UTC DST offset in seconds |
+| `org` | Organization name |
+| `proxy` | Proxy, VPN or Tor exit address |
+| `query` | IP address or domain used for the query |
+| `region` | Region/state short code (FIPS or ISO) |
+| `regionName` | Region/state name |
+| `reverse` | Reverse DNS of the IP (can delay response) |
+| `status` | Status of the query |
+| `timezone` | Timezone (tz database format) |
+| `zip` | Zip/postal code |
 
 Operations: Load.
 
@@ -287,31 +287,31 @@ Create an instance: `json = client.Json`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `as` | `String` |  |
-| `asname` | `String` |  |
-| `city` | `String` |  |
-| `continent` | `String` |  |
-| `continentCode` | `String` |  |
-| `country` | `String` |  |
-| `countryCode` | `String` |  |
-| `currency` | `String` |  |
-| `district` | `String` |  |
-| `hosting` | `Boolean` |  |
-| `isp` | `String` |  |
-| `lat` | `Float` |  |
-| `lon` | `Float` |  |
-| `message` | `String` |  |
-| `mobile` | `Boolean` |  |
-| `offset` | `Integer` |  |
-| `org` | `String` |  |
-| `proxy` | `Boolean` |  |
-| `query` | `String` |  |
-| `region` | `String` |  |
-| `regionName` | `String` |  |
-| `reverse` | `String` |  |
-| `status` | `String` |  |
-| `timezone` | `String` |  |
-| `zip` | `String` |  |
+| `as` | `String` | AS number and organization, separated by space (RIR). |
+| `asname` | `String` | AS name (RIR). |
+| `city` | `String` | City name |
+| `continent` | `String` | Continent name |
+| `continentCode` | `String` | Two-letter continent code |
+| `country` | `String` | Country name |
+| `countryCode` | `String` | Two-letter country code (ISO 3166-1 alpha-2) |
+| `currency` | `String` | National currency code |
+| `district` | `String` | District (subdivision of city) |
+| `hosting` | `Boolean` | Hosting, colocated or data center |
+| `isp` | `String` | ISP name |
+| `lat` | `Float` | Latitude |
+| `lon` | `Float` | Longitude |
+| `message` | `String` | Error message, included only when status is fail. |
+| `mobile` | `Boolean` | Mobile (cellular) connection |
+| `offset` | `Integer` | Timezone UTC DST offset in seconds |
+| `org` | `String` | Organization name |
+| `proxy` | `Boolean` | Proxy, VPN or Tor exit address |
+| `query` | `String` | IP address or domain used for the query |
+| `region` | `String` | Region/state short code (FIPS or ISO) |
+| `regionName` | `String` | Region/state name |
+| `reverse` | `String` | Reverse DNS of the IP (can delay response) |
+| `status` | `String` | Status of the query |
+| `timezone` | `String` | Timezone (tz database format) |
+| `zip` | `String` | Zip/postal code |
 
 #### Example: Load
 

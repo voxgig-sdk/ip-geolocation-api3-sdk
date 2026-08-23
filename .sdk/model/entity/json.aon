@@ -8,126 +8,151 @@ main: kit: entity: json: {
     {
       name: "as"
       req: false
+      short: "AS number and organization, separated by space (RIR)."
       type: "`$STRING`"
     }
     {
       name: "asname"
       req: false
+      short: "AS name (RIR)."
       type: "`$STRING`"
     }
     {
       name: "city"
       req: false
+      short: "City name"
       type: "`$STRING`"
     }
     {
       name: "continent"
       req: false
+      short: "Continent name"
       type: "`$STRING`"
     }
     {
       name: "continentCode"
       req: false
+      short: "Two-letter continent code"
       type: "`$STRING`"
     }
     {
       name: "country"
       req: false
+      short: "Country name"
       type: "`$STRING`"
     }
     {
       name: "countryCode"
       req: false
+      short: "Two-letter country code (ISO 3166-1 alpha-2)"
       type: "`$STRING`"
     }
     {
       name: "currency"
       req: false
+      short: "National currency code"
       type: "`$STRING`"
     }
     {
       name: "district"
       req: false
+      short: "District (subdivision of city)"
       type: "`$STRING`"
     }
     {
       name: "hosting"
       req: false
+      short: "Hosting, colocated or data center"
       type: "`$BOOLEAN`"
     }
     {
       name: "isp"
       req: false
+      short: "ISP name"
       type: "`$STRING`"
     }
     {
       name: "lat"
       req: false
+      short: "Latitude"
       type: "`$NUMBER`"
     }
     {
       name: "lon"
       req: false
+      short: "Longitude"
       type: "`$NUMBER`"
     }
     {
       name: "message"
       req: false
+      short: "Error message, included only when status is fail."
       type: "`$STRING`"
     }
     {
       name: "mobile"
       req: false
+      short: "Mobile (cellular) connection"
       type: "`$BOOLEAN`"
     }
     {
       name: "offset"
       req: false
+      short: "Timezone UTC DST offset in seconds"
       type: "`$INTEGER`"
     }
     {
       name: "org"
       req: false
+      short: "Organization name"
       type: "`$STRING`"
     }
     {
       name: "proxy"
       req: false
+      short: "Proxy, VPN or Tor exit address"
       type: "`$BOOLEAN`"
     }
     {
       name: "query"
       req: false
+      short: "IP address or domain used for the query"
       type: "`$STRING`"
     }
     {
       name: "region"
       req: false
+      short: "Region/state short code (FIPS or ISO)"
       type: "`$STRING`"
     }
     {
       name: "regionName"
       req: false
+      short: "Region/state name"
       type: "`$STRING`"
     }
     {
       name: "reverse"
       req: false
+      short: "Reverse DNS of the IP (can delay response)"
       type: "`$STRING`"
     }
     {
       name: "status"
       req: true
+      short: "Status of the query"
       type: "`$STRING`"
     }
     {
       name: "timezone"
       req: false
+      short: "Timezone (tz database format)"
       type: "`$STRING`"
     }
     {
       name: "zip"
       req: false
+      short: "Zip/postal code"
       type: "`$STRING`"
     }
   ]

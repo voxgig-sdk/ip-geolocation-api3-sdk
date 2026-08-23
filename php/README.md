@@ -248,31 +248,31 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `as` |  |
-| `asname` |  |
-| `city` |  |
-| `continent` |  |
-| `continentCode` |  |
-| `country` |  |
-| `countryCode` |  |
-| `currency` |  |
-| `district` |  |
-| `hosting` |  |
-| `isp` |  |
-| `lat` |  |
-| `lon` |  |
-| `message` |  |
-| `mobile` |  |
-| `offset` |  |
-| `org` |  |
-| `proxy` |  |
-| `query` |  |
-| `region` |  |
-| `regionName` |  |
-| `reverse` |  |
-| `status` |  |
-| `timezone` |  |
-| `zip` |  |
+| `as` | AS number and organization, separated by space (RIR). |
+| `asname` | AS name (RIR). |
+| `city` | City name |
+| `continent` | Continent name |
+| `continentCode` | Two-letter continent code |
+| `country` | Country name |
+| `countryCode` | Two-letter country code (ISO 3166-1 alpha-2) |
+| `currency` | National currency code |
+| `district` | District (subdivision of city) |
+| `hosting` | Hosting, colocated or data center |
+| `isp` | ISP name |
+| `lat` | Latitude |
+| `lon` | Longitude |
+| `message` | Error message, included only when status is fail. |
+| `mobile` | Mobile (cellular) connection |
+| `offset` | Timezone UTC DST offset in seconds |
+| `org` | Organization name |
+| `proxy` | Proxy, VPN or Tor exit address |
+| `query` | IP address or domain used for the query |
+| `region` | Region/state short code (FIPS or ISO) |
+| `regionName` | Region/state name |
+| `reverse` | Reverse DNS of the IP (can delay response) |
+| `status` | Status of the query |
+| `timezone` | Timezone (tz database format) |
+| `zip` | Zip/postal code |
 
 Operations: Load.
 
@@ -297,31 +297,31 @@ Create an instance: `$json = $client->Json();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `as` | `string` |  |
-| `asname` | `string` |  |
-| `city` | `string` |  |
-| `continent` | `string` |  |
-| `continentCode` | `string` |  |
-| `country` | `string` |  |
-| `countryCode` | `string` |  |
-| `currency` | `string` |  |
-| `district` | `string` |  |
-| `hosting` | `bool` |  |
-| `isp` | `string` |  |
-| `lat` | `float` |  |
-| `lon` | `float` |  |
-| `message` | `string` |  |
-| `mobile` | `bool` |  |
-| `offset` | `int` |  |
-| `org` | `string` |  |
-| `proxy` | `bool` |  |
-| `query` | `string` |  |
-| `region` | `string` |  |
-| `regionName` | `string` |  |
-| `reverse` | `string` |  |
-| `status` | `string` |  |
-| `timezone` | `string` |  |
-| `zip` | `string` |  |
+| `as` | `string` | AS number and organization, separated by space (RIR). |
+| `asname` | `string` | AS name (RIR). |
+| `city` | `string` | City name |
+| `continent` | `string` | Continent name |
+| `continentCode` | `string` | Two-letter continent code |
+| `country` | `string` | Country name |
+| `countryCode` | `string` | Two-letter country code (ISO 3166-1 alpha-2) |
+| `currency` | `string` | National currency code |
+| `district` | `string` | District (subdivision of city) |
+| `hosting` | `bool` | Hosting, colocated or data center |
+| `isp` | `string` | ISP name |
+| `lat` | `float` | Latitude |
+| `lon` | `float` | Longitude |
+| `message` | `string` | Error message, included only when status is fail. |
+| `mobile` | `bool` | Mobile (cellular) connection |
+| `offset` | `int` | Timezone UTC DST offset in seconds |
+| `org` | `string` | Organization name |
+| `proxy` | `bool` | Proxy, VPN or Tor exit address |
+| `query` | `string` | IP address or domain used for the query |
+| `region` | `string` | Region/state short code (FIPS or ISO) |
+| `regionName` | `string` | Region/state name |
+| `reverse` | `string` | Reverse DNS of the IP (can delay response) |
+| `status` | `string` | Status of the query |
+| `timezone` | `string` | Timezone (tz database format) |
+| `zip` | `string` | Zip/postal code |
 
 #### Example: Load
 

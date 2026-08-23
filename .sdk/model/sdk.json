@@ -36,150 +36,175 @@
               "active": true,
               "name": "as",
               "req": false,
+              "short": "AS number and organization, separated by space (RIR).",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "asname",
               "req": false,
+              "short": "AS name (RIR).",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "city",
               "req": false,
+              "short": "City name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "continent",
               "req": false,
+              "short": "Continent name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "continentCode",
               "req": false,
+              "short": "Two-letter continent code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "country",
               "req": false,
+              "short": "Country name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countryCode",
               "req": false,
+              "short": "Two-letter country code (ISO 3166-1 alpha-2)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "currency",
               "req": false,
+              "short": "National currency code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "district",
               "req": false,
+              "short": "District (subdivision of city)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "hosting",
               "req": false,
+              "short": "Hosting, colocated or data center",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "isp",
               "req": false,
+              "short": "ISP name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "lat",
               "req": false,
+              "short": "Latitude",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "lon",
               "req": false,
+              "short": "Longitude",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "message",
               "req": false,
+              "short": "Error message, included only when status is fail.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "mobile",
               "req": false,
+              "short": "Mobile (cellular) connection",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "offset",
               "req": false,
+              "short": "Timezone UTC DST offset in seconds",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "org",
               "req": false,
+              "short": "Organization name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "proxy",
               "req": false,
+              "short": "Proxy, VPN or Tor exit address",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "query",
               "req": false,
+              "short": "IP address or domain used for the query",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "region",
               "req": false,
+              "short": "Region/state short code (FIPS or ISO)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regionName",
               "req": false,
+              "short": "Region/state name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "reverse",
               "req": false,
+              "short": "Reverse DNS of the IP (can delay response)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": true,
+              "short": "Status of the query",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "timezone",
               "req": false,
+              "short": "Timezone (tz database format)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "zip",
               "req": false,
+              "short": "Zip/postal code",
               "type": "`$STRING`"
             }
           ],

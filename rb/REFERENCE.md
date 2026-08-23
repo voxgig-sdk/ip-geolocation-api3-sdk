@@ -93,31 +93,31 @@ json = client.Json
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `as` | `String` | No |  |
-| `asname` | `String` | No |  |
-| `city` | `String` | No |  |
-| `continent` | `String` | No |  |
-| `continentCode` | `String` | No |  |
-| `country` | `String` | No |  |
-| `countryCode` | `String` | No |  |
-| `currency` | `String` | No |  |
-| `district` | `String` | No |  |
-| `hosting` | `Boolean` | No |  |
-| `isp` | `String` | No |  |
-| `lat` | `Float` | No |  |
-| `lon` | `Float` | No |  |
-| `message` | `String` | No |  |
-| `mobile` | `Boolean` | No |  |
-| `offset` | `Integer` | No |  |
-| `org` | `String` | No |  |
-| `proxy` | `Boolean` | No |  |
-| `query` | `String` | No |  |
-| `region` | `String` | No |  |
-| `regionName` | `String` | No |  |
-| `reverse` | `String` | No |  |
-| `status` | `String` | Yes |  |
-| `timezone` | `String` | No |  |
-| `zip` | `String` | No |  |
+| `as` | `String` | No | AS number and organization, separated by space (RIR). |
+| `asname` | `String` | No | AS name (RIR). |
+| `city` | `String` | No | City name |
+| `continent` | `String` | No | Continent name |
+| `continentCode` | `String` | No | Two-letter continent code |
+| `country` | `String` | No | Country name |
+| `countryCode` | `String` | No | Two-letter country code (ISO 3166-1 alpha-2) |
+| `currency` | `String` | No | National currency code |
+| `district` | `String` | No | District (subdivision of city) |
+| `hosting` | `Boolean` | No | Hosting, colocated or data center |
+| `isp` | `String` | No | ISP name |
+| `lat` | `Float` | No | Latitude |
+| `lon` | `Float` | No | Longitude |
+| `message` | `String` | No | Error message, included only when status is fail. |
+| `mobile` | `Boolean` | No | Mobile (cellular) connection |
+| `offset` | `Integer` | No | Timezone UTC DST offset in seconds |
+| `org` | `String` | No | Organization name |
+| `proxy` | `Boolean` | No | Proxy, VPN or Tor exit address |
+| `query` | `String` | No | IP address or domain used for the query |
+| `region` | `String` | No | Region/state short code (FIPS or ISO) |
+| `regionName` | `String` | No | Region/state name |
+| `reverse` | `String` | No | Reverse DNS of the IP (can delay response) |
+| `status` | `String` | Yes | Status of the query |
+| `timezone` | `String` | No | Timezone (tz database format) |
+| `zip` | `String` | No | Zip/postal code |
 
 ### Operations
 
