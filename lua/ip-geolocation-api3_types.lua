@@ -17,6 +17,7 @@
 ---@field currency? string
 ---@field district? string
 ---@field hosting? boolean
+---@field id? string
 ---@field isp? string
 ---@field lat? number
 ---@field lon? number

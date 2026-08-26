@@ -103,6 +103,7 @@ json = client.Json
 | `currency` | `String` | No | National currency code |
 | `district` | `String` | No | District (subdivision of city) |
 | `hosting` | `Boolean` | No | Hosting, colocated or data center |
+| `id` | `String` | No |  |
 | `isp` | `String` | No | ISP name |
 | `lat` | `Float` | No | Latitude |
 | `lon` | `Float` | No | Longitude |

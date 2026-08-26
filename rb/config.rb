@@ -28,6 +28,7 @@ module IpGeolocationApi3Config
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -91,6 +92,10 @@ module IpGeolocationApi3Config
               "name" => "hosting",
               "short" => "Hosting, colocated or data center",
               "type" => "`$BOOLEAN`",
+            },
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
             },
             {
               "name" => "isp",

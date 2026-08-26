@@ -16,6 +16,7 @@ local function make_config()
         ["options"] = {
           ["active"] = false,
         },
+        ["transport"] = "base",
       },
     },
     options = {
@@ -79,6 +80,10 @@ local function make_config()
             ["name"] = "hosting",
             ["short"] = "Hosting, colocated or data center",
             ["type"] = "`$BOOLEAN`",
+          },
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "isp",

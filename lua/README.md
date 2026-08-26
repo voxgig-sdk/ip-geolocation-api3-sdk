@@ -235,6 +235,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `currency` | National currency code |
 | `district` | District (subdivision of city) |
 | `hosting` | Hosting, colocated or data center |
+| `id` |  |
 | `isp` | ISP name |
 | `lat` | Latitude |
 | `lon` | Longitude |
@@ -284,6 +285,7 @@ Create an instance: `local json = client:Json(nil)`
 | `currency` | `string` | National currency code |
 | `district` | `string` | District (subdivision of city) |
 | `hosting` | `boolean` | Hosting, colocated or data center |
+| `id` | `string` |  |
 | `isp` | `string` | ISP name |
 | `lat` | `number` | Latitude |
 | `lon` | `number` | Longitude |

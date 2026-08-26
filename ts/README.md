@@ -145,7 +145,7 @@ await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -295,6 +295,7 @@ The `prepare()` method returns:
 | `currency` | National currency code |
 | `district` | District (subdivision of city) |
 | `hosting` | Hosting, colocated or data center |
+| `id` |  |
 | `isp` | ISP name |
 | `lat` | Latitude |
 | `lon` | Longitude |
@@ -344,6 +345,7 @@ Create an instance: `const json = client.Json()`
 | `currency` | `string` | National currency code |
 | `district` | `string` | District (subdivision of city) |
 | `hosting` | `boolean` | Hosting, colocated or data center |
+| `id` | `string` |  |
 | `isp` | `string` | ISP name |
 | `lat` | `number` | Latitude |
 | `lon` | `number` | Longitude |

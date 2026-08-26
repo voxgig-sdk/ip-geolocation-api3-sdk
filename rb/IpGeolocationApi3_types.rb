@@ -40,6 +40,9 @@
 # @!attribute [rw] hosting
 #   @return [Boolean, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] isp
 #   @return [String, nil]
 #
@@ -95,6 +98,7 @@ Json = Struct.new(
   :currency,
   :district,
   :hosting,
+  :id,
   :isp,
   :lat,
   :lon,

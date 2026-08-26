@@ -37,6 +37,7 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
@@ -100,6 +101,10 @@ def make_config():
             "name": "hosting",
             "short": "Hosting, colocated or data center",
             "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "id",
+            "type": "`$STRING`",
           },
           {
             "name": "isp",

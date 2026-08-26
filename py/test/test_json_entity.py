@@ -48,9 +48,13 @@ class TestJsonEntity:
 
         # LOAD
         json_ref01_ent = client.Json(None)
-        json_ref01_match_dt0 = {}
+        json_ref01_match_dt0 = {
+            "id": json_ref01_data["id"],
+        }
         json_ref01_data_dt0_loaded = json_ref01_ent.load(json_ref01_match_dt0, None)
-        assert json_ref01_data_dt0_loaded is not None
+        json_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(json_ref01_data_dt0_loaded))
+        assert json_ref01_data_dt0_load_result is not None
+        assert json_ref01_data_dt0_load_result["id"] == json_ref01_data["id"]
 
 
 

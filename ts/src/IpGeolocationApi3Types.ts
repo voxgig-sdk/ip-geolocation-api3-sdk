@@ -16,6 +16,7 @@ export interface Json {
   currency?: string
   district?: string
   hosting?: boolean
+  id?: string
   isp?: string
   lat?: number
   lon?: number

@@ -268,6 +268,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"currency"` | National currency code |
 | `"district"` | District (subdivision of city) |
 | `"hosting"` | Hosting, colocated or data center |
+| `"id"` |  |
 | `"isp"` | ISP name |
 | `"lat"` | Latitude |
 | `"lon"` | Longitude |
@@ -317,6 +318,7 @@ Create an instance: `json := client.Json(nil)`
 | `currency` | `string` | National currency code |
 | `district` | `string` | District (subdivision of city) |
 | `hosting` | `bool` | Hosting, colocated or data center |
+| `id` | `string` |  |
 | `isp` | `string` | ISP name |
 | `lat` | `float64` | Latitude |
 | `lon` | `float64` | Longitude |

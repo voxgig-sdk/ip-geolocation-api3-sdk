@@ -25,6 +25,7 @@ class Json
     public ?string $currency = null;
     public ?string $district = null;
     public ?bool $hosting = null;
+    public ?string $id = null;
     public ?string $isp = null;
     public ?float $lat = null;
     public ?float $lon = null;

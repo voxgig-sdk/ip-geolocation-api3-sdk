@@ -48,9 +48,13 @@ class JsonEntityTest extends TestCase
 
         // LOAD
         $json_ref01_ent = $client->Json(null);
-        $json_ref01_match_dt0 = [];
+        $json_ref01_match_dt0 = [
+            "id" => $json_ref01_data["id"],
+        ];
         $json_ref01_data_dt0_loaded = $json_ref01_ent->load($json_ref01_match_dt0, null);
-        $this->assertNotNull($json_ref01_data_dt0_loaded);
+        $json_ref01_data_dt0_load_result = Helpers::to_map(is_object($json_ref01_data_dt0_loaded) && method_exists($json_ref01_data_dt0_loaded, 'data_get') ? $json_ref01_data_dt0_loaded->data_get() : $json_ref01_data_dt0_loaded);
+        $this->assertNotNull($json_ref01_data_dt0_load_result);
+        $this->assertEquals($json_ref01_data_dt0_load_result["id"], $json_ref01_data["id"]);
 
     }
 }

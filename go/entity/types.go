@@ -24,6 +24,7 @@ type Json struct {
 	Currency *string `json:"currency,omitempty"`
 	District *string `json:"district,omitempty"`
 	Hosting *bool `json:"hosting,omitempty"`
+	Id *string `json:"id,omitempty"`
 	Isp *string `json:"isp,omitempty"`
 	Lat *float64 `json:"lat,omitempty"`
 	Lon *float64 `json:"lon,omitempty"`

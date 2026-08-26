@@ -97,6 +97,7 @@ json = client.Json()
 | `currency` | `str` | No | National currency code |
 | `district` | `str` | No | District (subdivision of city) |
 | `hosting` | `bool` | No | Hosting, colocated or data center |
+| `id` | `str` | No |  |
 | `isp` | `str` | No | ISP name |
 | `lat` | `float` | No | Latitude |
 | `lon` | `float` | No | Longitude |

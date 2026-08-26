@@ -40,7 +40,8 @@ class Config {
      test:     {
       "options": {
         "active": false
-      }
+      },
+      "transport": "base"
     },
 
   }
@@ -114,6 +115,10 @@ class Config {
           "name": "hosting",
           "short": "Hosting, colocated or data center",
           "type": "`$BOOLEAN`"
+        },
+        {
+          "name": "id",
+          "type": "`$STRING`"
         },
         {
           "name": "isp",

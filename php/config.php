@@ -42,6 +42,7 @@ class IpGeolocationApi3Config
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -105,6 +106,10 @@ class IpGeolocationApi3Config
               'name' => 'hosting',
               'short' => 'Hosting, colocated or data center',
               'type' => '`$BOOLEAN`',
+            ],
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
             ],
             [
               'name' => 'isp',

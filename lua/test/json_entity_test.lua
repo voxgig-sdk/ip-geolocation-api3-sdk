@@ -44,10 +44,14 @@ describe("JsonEntity", function()
 
     -- LOAD
     local json_ref01_ent = client:Json(nil)
-    local json_ref01_match_dt0 = {}
+    local json_ref01_match_dt0 = {
+      id = json_ref01_data["id"],
+    }
     local json_ref01_data_dt0_loaded, err = json_ref01_ent:load(json_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(json_ref01_data_dt0_loaded)
+    local json_ref01_data_dt0_load_result = helpers.to_map(type(json_ref01_data_dt0_loaded) == 'table' and json_ref01_data_dt0_loaded.data_get and json_ref01_data_dt0_loaded:data_get() or json_ref01_data_dt0_loaded)
+    assert.is_not_nil(json_ref01_data_dt0_load_result)
+    assert.are.equal(json_ref01_data_dt0_load_result["id"], json_ref01_data["id"])
 
   end)
 end)

@@ -248,6 +248,7 @@ returns a result `Hash` with these keys:
 | `currency` | National currency code |
 | `district` | District (subdivision of city) |
 | `hosting` | Hosting, colocated or data center |
+| `id` |  |
 | `isp` | ISP name |
 | `lat` | Latitude |
 | `lon` | Longitude |
@@ -297,6 +298,7 @@ Create an instance: `json = client.Json`
 | `currency` | `String` | National currency code |
 | `district` | `String` | District (subdivision of city) |
 | `hosting` | `Boolean` | Hosting, colocated or data center |
+| `id` | `String` |  |
 | `isp` | `String` | ISP name |
 | `lat` | `Float` | Latitude |
 | `lon` | `Float` | Longitude |

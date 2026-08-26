@@ -102,6 +102,7 @@ $json = $client->Json();
 | `currency` | `string` | No | National currency code |
 | `district` | `string` | No | District (subdivision of city) |
 | `hosting` | `bool` | No | Hosting, colocated or data center |
+| `id` | `string` | No |  |
 | `isp` | `string` | No | ISP name |
 | `lat` | `float` | No | Latitude |
 | `lon` | `float` | No | Longitude |

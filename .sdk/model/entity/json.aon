@@ -66,6 +66,11 @@ main: kit: entity: json: {
       type: "`$BOOLEAN`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "isp"
       req: false
       short: "ISP name"
@@ -156,6 +161,11 @@ main: kit: entity: json: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "json"
   op: {

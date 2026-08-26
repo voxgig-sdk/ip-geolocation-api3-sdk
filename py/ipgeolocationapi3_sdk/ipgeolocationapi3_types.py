@@ -30,6 +30,7 @@ class Json(JsonRequired, total=False):
     currency: str
     district: str
     hosting: bool
+    id: str
     isp: str
     lat: float
     lon: float
