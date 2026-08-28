@@ -45,6 +45,9 @@ type Json struct {
 // JsonLoadMatch is the typed request payload for Json.LoadTyped.
 type JsonLoadMatch struct {
 	Id string `json:"id"`
+	Callback *string `json:"callback,omitempty"`
+	Field *string `json:"field,omitempty"`
+	Lang *string `json:"lang,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

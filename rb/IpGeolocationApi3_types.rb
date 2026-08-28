@@ -121,8 +121,20 @@ Json = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] callback
+#   @return [String, nil]
+#
+# @!attribute [rw] field
+#   @return [String, nil]
+#
+# @!attribute [rw] lang
+#   @return [String, nil]
 JsonLoadMatch = Struct.new(
   :id,
+  :callback,
+  :field,
+  :lang,
   keyword_init: true
 )
 

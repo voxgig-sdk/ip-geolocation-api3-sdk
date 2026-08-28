@@ -47,5 +47,8 @@ class Json
 class JsonLoadMatch
 {
     public string $id;
+    public ?string $callback = null;
+    public ?string $field = null;
+    public ?string $lang = null;
 }
 

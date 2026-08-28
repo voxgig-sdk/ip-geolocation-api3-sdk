@@ -47,5 +47,11 @@ class Json(JsonRequired, total=False):
     zip: str
 
 
-class JsonLoadMatch(TypedDict):
+class JsonLoadMatchRequired(TypedDict):
     id: str
+
+
+class JsonLoadMatch(JsonLoadMatchRequired, total=False):
+    callback: str
+    field: str
+    lang: str

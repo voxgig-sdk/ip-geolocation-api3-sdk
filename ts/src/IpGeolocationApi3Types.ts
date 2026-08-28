@@ -36,5 +36,8 @@ export interface Json {
 
 export interface JsonLoadMatch {
   id: string
+  callback?: string
+  field?: string
+  lang?: string
 }
 

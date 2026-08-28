@@ -36,6 +36,9 @@
 
 ---@class JsonLoadMatch
 ---@field id string
+---@field callback? string
+---@field field? string
+---@field lang? string
 
 local M = {}
 
