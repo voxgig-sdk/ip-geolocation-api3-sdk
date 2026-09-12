@@ -91,11 +91,13 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "lat",
             ["short"] = "Latitude",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "lon",
             ["short"] = "Longitude",
             ["type"] = "`$NUMBER`",
@@ -162,6 +164,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "json",
         ["op"] = {
           ["load"] = {
@@ -206,13 +212,17 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/json/{query}",
-                ["parts"] = {
-                  "json",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["query"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "json",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -226,6 +236,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "json",
+                  "{id}",
                 },
               },
               {
@@ -256,8 +270,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/json/",
-                ["parts"] = {
-                  "json",
+                ["segments"] = {
+                  {
+                    ["lit"] = "json",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -269,6 +285,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "json",
                 },
               },
             },

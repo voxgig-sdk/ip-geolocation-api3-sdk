@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -126,11 +137,13 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "float",
           "name": "lat",
           "short": "Latitude",
           "type": "`$NUMBER`"
         },
         {
+          "format": "float",
           "name": "lon",
           "short": "Longitude",
           "type": "`$NUMBER`"
@@ -197,6 +210,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "json",
       "op": {
         "load": {
@@ -241,15 +258,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/json/{query}",
-              "parts": [
-                "json",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "query": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "json"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "callback",
@@ -261,7 +282,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "json",
+                "{id}"
+              ]
             },
             {
               "args": {
@@ -291,8 +316,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/json/",
-              "parts": [
-                "json"
+              "segments": [
+                {
+                  "lit": "json"
+                }
               ],
               "select": {
                 "exist": [
@@ -304,7 +331,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "json"
+              ]
             }
           ]
         }
@@ -320,6 +350,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

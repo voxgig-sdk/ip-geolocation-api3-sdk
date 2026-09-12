@@ -103,11 +103,13 @@ module IpGeolocationApi3Config
               "type" => "`$STRING`",
             },
             {
+              "format" => "float",
               "name" => "lat",
               "short" => "Latitude",
               "type" => "`$NUMBER`",
             },
             {
+              "format" => "float",
               "name" => "lon",
               "short" => "Longitude",
               "type" => "`$NUMBER`",
@@ -174,6 +176,10 @@ module IpGeolocationApi3Config
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "json",
           "op" => {
             "load" => {
@@ -218,15 +224,19 @@ module IpGeolocationApi3Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/json/{query}",
-                  "parts" => [
-                    "json",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "query" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "json",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "callback",
@@ -239,6 +249,10 @@ module IpGeolocationApi3Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "json",
+                    "{id}",
+                  ],
                 },
                 {
                   "args" => {
@@ -268,8 +282,10 @@ module IpGeolocationApi3Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/json/",
-                  "parts" => [
-                    "json",
+                  "segments" => [
+                    {
+                      "lit" => "json",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -282,6 +298,9 @@ module IpGeolocationApi3Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "json",
+                  ],
                 },
               ],
             },

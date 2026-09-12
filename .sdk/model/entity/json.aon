@@ -77,12 +77,14 @@ main: kit: entity: json: {
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "lat"
       req: false
       short: "Latitude"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "lon"
       req: false
       short: "Longitude"
@@ -212,15 +214,19 @@ main: kit: entity: json: {
           }
           method: "GET"
           orig: "/json/{query}"
-          parts: [
-            "json"
-            "{id}"
-          ]
           rename: {
             param: {
               query: "id"
             }
           }
+          segments: [
+            {
+              lit: "json"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "callback"
@@ -264,8 +270,10 @@ main: kit: entity: json: {
           }
           method: "GET"
           orig: "/json/"
-          parts: [
-            "json"
+          segments: [
+            {
+              lit: "json"
+            }
           ]
           select: {
             exist: [
