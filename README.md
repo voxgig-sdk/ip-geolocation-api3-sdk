@@ -105,7 +105,7 @@ local result, err = client:Json():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ip-geolocation-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-geolocation-api3-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ip-geolocation-api3-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-geolocation-api3-sdk/releases) |
 | Python | `voxgig-sdk-ip-geolocation-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-geolocation-api3-sdk/releases) |
 | PHP | `voxgig-sdk/ip-geolocation-api3` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-geolocation-api3-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/ip-geolocation-api3-sdk/go` | `go get github.com/voxgig-sdk/ip-geolocation-api3-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Json():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { IpGeolocationApi3SDK } from '@voxgig-sdk/ip-geolocation-api3'
+import { IpGeolocationApi3SDK } from '@voxgig-sdk/ip-geolocation-api3-sdk'
 
 const client = new IpGeolocationApi3SDK()
 
