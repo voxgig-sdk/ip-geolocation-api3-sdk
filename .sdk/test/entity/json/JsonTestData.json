@@ -18,7 +18,7 @@
         "lon": 273,
         "message": "s112",
         "mobile": false,
-        "offset": "s114",
+        "offset": 276,
         "org": "s115",
         "proxy": true,
         "query": "s117",
@@ -46,7 +46,7 @@
         "lon": 533,
         "message": "s216",
         "mobile": false,
-        "offset": "s218",
+        "offset": 536,
         "org": "s219",
         "proxy": true,
         "query": "s21b",
@@ -74,7 +74,7 @@
         "lon": 793,
         "message": "s31a",
         "mobile": false,
-        "offset": "s31c",
+        "offset": 796,
         "org": "s31d",
         "proxy": true,
         "query": "s31f",
@@ -105,7 +105,7 @@
         "lon": 1053,
         "message": "s41e",
         "mobile": false,
-        "offset": "s420",
+        "offset": 1056,
         "org": "s421",
         "proxy": true,
         "query": "s423",
@@ -115,6 +115,581 @@
         "status": "s427",
         "timezone": "s428",
         "zip": "s429"
+      }
+    }
+  },
+  "requests": {
+    "GET /json/{query}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getGeolocationByQuery",
+        "parameters": [
+          {
+            "description": "IPv4/IPv6 address or domain name to lookup",
+            "examples": {
+              "domain": {
+                "summary": "Domain name",
+                "value": "google.com"
+              },
+              "ipv4": {
+                "summary": "IPv4 address",
+                "value": "8.8.8.8"
+              },
+              "ipv6": {
+                "summary": "IPv6 address",
+                "value": "2001:4860:4860::8888"
+              }
+            },
+            "in": "path",
+            "name": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Comma-separated list of fields to return (e.g., 'status,message,query,country,city') or a numeric value representing combined fields",
+            "example": "status,message,country,city,lat,lon",
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response language for localized city, regionName and country fields",
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "default": "en",
+              "enum": [
+                "en",
+                "de",
+                "es",
+                "pt-BR",
+                "fr",
+                "ja",
+                "zh-CN",
+                "ru"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "JSONP callback function name to wrap the response",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "fail_invalid": {
+                    "value": {
+                      "message": "invalid query",
+                      "query": "not-an-ip",
+                      "status": "fail"
+                    }
+                  },
+                  "fail_private": {
+                    "value": {
+                      "message": "private range",
+                      "query": "192.168.1.1",
+                      "status": "fail"
+                    }
+                  },
+                  "fail_reserved": {
+                    "value": {
+                      "message": "reserved range",
+                      "query": "0.0.0.0",
+                      "status": "fail"
+                    }
+                  },
+                  "success": {
+                    "value": {
+                      "as": "AS15169 Google Inc.",
+                      "asname": "GOOGLE",
+                      "city": "Mountain View",
+                      "continent": "North America",
+                      "continentCode": "NA",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "currency": "USD",
+                      "district": "Old Farm District",
+                      "hosting": true,
+                      "isp": "Google",
+                      "lat": 37.4192,
+                      "lon": -122.0574,
+                      "mobile": false,
+                      "offset": -25200,
+                      "org": "Google",
+                      "proxy": false,
+                      "query": "173.194.67.94",
+                      "region": "CA",
+                      "regionName": "California",
+                      "reverse": "wi-in-f94.1e100.net",
+                      "status": "success",
+                      "timezone": "America/Los_Angeles",
+                      "zip": "94043"
+                    }
+                  }
+                },
+                "schema": {
+                  "properties": {
+                    "as": {
+                      "description": "AS number and organization, separated by space (RIR). Empty for IP blocks not being announced in BGP tables",
+                      "example": "AS15169 Google Inc.",
+                      "type": "string"
+                    },
+                    "asname": {
+                      "description": "AS name (RIR). Empty for IP blocks not being announced in BGP tables",
+                      "example": "GOOGLE",
+                      "type": "string"
+                    },
+                    "city": {
+                      "description": "City name",
+                      "example": "Mountain View",
+                      "type": "string"
+                    },
+                    "continent": {
+                      "description": "Continent name",
+                      "example": "North America",
+                      "type": "string"
+                    },
+                    "continentCode": {
+                      "description": "Two-letter continent code",
+                      "example": "NA",
+                      "type": "string"
+                    },
+                    "country": {
+                      "description": "Country name",
+                      "example": "United States",
+                      "type": "string"
+                    },
+                    "countryCode": {
+                      "description": "Two-letter country code (ISO 3166-1 alpha-2)",
+                      "example": "US",
+                      "type": "string"
+                    },
+                    "currency": {
+                      "description": "National currency code",
+                      "example": "USD",
+                      "type": "string"
+                    },
+                    "district": {
+                      "description": "District (subdivision of city)",
+                      "example": "Old Farm District",
+                      "type": "string"
+                    },
+                    "hosting": {
+                      "description": "Hosting, colocated or data center",
+                      "example": true,
+                      "type": "boolean"
+                    },
+                    "isp": {
+                      "description": "ISP name",
+                      "example": "Google",
+                      "type": "string"
+                    },
+                    "lat": {
+                      "description": "Latitude",
+                      "example": 37.4192,
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "lon": {
+                      "description": "Longitude",
+                      "example": -122.0574,
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "message": {
+                      "description": "Error message, included only when status is fail. Can be 'private range', 'reserved range', or 'invalid query'",
+                      "enum": [
+                        "private range",
+                        "reserved range",
+                        "invalid query"
+                      ],
+                      "type": "string"
+                    },
+                    "mobile": {
+                      "description": "Mobile (cellular) connection",
+                      "example": false,
+                      "type": "boolean"
+                    },
+                    "offset": {
+                      "description": "Timezone UTC DST offset in seconds",
+                      "example": -25200,
+                      "type": "integer"
+                    },
+                    "org": {
+                      "description": "Organization name",
+                      "example": "Google",
+                      "type": "string"
+                    },
+                    "proxy": {
+                      "description": "Proxy, VPN or Tor exit address",
+                      "example": false,
+                      "type": "boolean"
+                    },
+                    "query": {
+                      "description": "IP address or domain used for the query",
+                      "example": "173.194.67.94",
+                      "type": "string"
+                    },
+                    "region": {
+                      "description": "Region/state short code (FIPS or ISO)",
+                      "example": "CA",
+                      "type": "string"
+                    },
+                    "regionName": {
+                      "description": "Region/state name",
+                      "example": "California",
+                      "type": "string"
+                    },
+                    "reverse": {
+                      "description": "Reverse DNS of the IP (can delay response)",
+                      "example": "wi-in-f94.1e100.net",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status of the query",
+                      "enum": [
+                        "success",
+                        "fail"
+                      ],
+                      "type": "string"
+                    },
+                    "timezone": {
+                      "description": "Timezone (tz database format)",
+                      "example": "America/Los_Angeles",
+                      "type": "string"
+                    },
+                    "zip": {
+                      "description": "Zip/postal code",
+                      "example": "94043",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful geolocation lookup",
+            "headers": {
+              "X-Rl": {
+                "description": "Number of requests remaining in the current rate limit window",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Ttl": {
+                "description": "Seconds until the rate limit is reset",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded - requests are throttled (45 requests per minute limit)",
+            "headers": {
+              "X-Rl": {
+                "description": "Number of requests remaining (0 when rate limited)",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Ttl": {
+                "description": "Seconds until the rate limit is reset",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /json/": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getGeolocationCurrent",
+        "parameters": [
+          {
+            "description": "Comma-separated list of fields to return (e.g., 'status,message,query,country,city') or a numeric value representing combined fields",
+            "example": "status,message,country,city,lat,lon",
+            "in": "query",
+            "name": "fields",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Response language for localized city, regionName and country fields",
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "default": "en",
+              "enum": [
+                "en",
+                "de",
+                "es",
+                "pt-BR",
+                "fr",
+                "ja",
+                "zh-CN",
+                "ru"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "JSONP callback function name to wrap the response",
+            "in": "query",
+            "name": "callback",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "fail": {
+                    "value": {
+                      "message": "invalid query",
+                      "query": "invalid",
+                      "status": "fail"
+                    }
+                  },
+                  "success": {
+                    "value": {
+                      "as": "AS15169 Google Inc.",
+                      "asname": "GOOGLE",
+                      "city": "Mountain View",
+                      "continent": "North America",
+                      "continentCode": "NA",
+                      "country": "United States",
+                      "countryCode": "US",
+                      "currency": "USD",
+                      "district": "Old Farm District",
+                      "hosting": true,
+                      "isp": "Google",
+                      "lat": 37.4192,
+                      "lon": -122.0574,
+                      "mobile": false,
+                      "offset": -25200,
+                      "org": "Google",
+                      "proxy": false,
+                      "query": "173.194.67.94",
+                      "region": "CA",
+                      "regionName": "California",
+                      "reverse": "wi-in-f94.1e100.net",
+                      "status": "success",
+                      "timezone": "America/Los_Angeles",
+                      "zip": "94043"
+                    }
+                  }
+                },
+                "schema": {
+                  "properties": {
+                    "as": {
+                      "description": "AS number and organization, separated by space (RIR). Empty for IP blocks not being announced in BGP tables",
+                      "example": "AS15169 Google Inc.",
+                      "type": "string"
+                    },
+                    "asname": {
+                      "description": "AS name (RIR). Empty for IP blocks not being announced in BGP tables",
+                      "example": "GOOGLE",
+                      "type": "string"
+                    },
+                    "city": {
+                      "description": "City name",
+                      "example": "Mountain View",
+                      "type": "string"
+                    },
+                    "continent": {
+                      "description": "Continent name",
+                      "example": "North America",
+                      "type": "string"
+                    },
+                    "continentCode": {
+                      "description": "Two-letter continent code",
+                      "example": "NA",
+                      "type": "string"
+                    },
+                    "country": {
+                      "description": "Country name",
+                      "example": "United States",
+                      "type": "string"
+                    },
+                    "countryCode": {
+                      "description": "Two-letter country code (ISO 3166-1 alpha-2)",
+                      "example": "US",
+                      "type": "string"
+                    },
+                    "currency": {
+                      "description": "National currency code",
+                      "example": "USD",
+                      "type": "string"
+                    },
+                    "district": {
+                      "description": "District (subdivision of city)",
+                      "example": "Old Farm District",
+                      "type": "string"
+                    },
+                    "hosting": {
+                      "description": "Hosting, colocated or data center",
+                      "example": true,
+                      "type": "boolean"
+                    },
+                    "isp": {
+                      "description": "ISP name",
+                      "example": "Google",
+                      "type": "string"
+                    },
+                    "lat": {
+                      "description": "Latitude",
+                      "example": 37.4192,
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "lon": {
+                      "description": "Longitude",
+                      "example": -122.0574,
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "message": {
+                      "description": "Error message, included only when status is fail. Can be 'private range', 'reserved range', or 'invalid query'",
+                      "enum": [
+                        "private range",
+                        "reserved range",
+                        "invalid query"
+                      ],
+                      "type": "string"
+                    },
+                    "mobile": {
+                      "description": "Mobile (cellular) connection",
+                      "example": false,
+                      "type": "boolean"
+                    },
+                    "offset": {
+                      "description": "Timezone UTC DST offset in seconds",
+                      "example": -25200,
+                      "type": "integer"
+                    },
+                    "org": {
+                      "description": "Organization name",
+                      "example": "Google",
+                      "type": "string"
+                    },
+                    "proxy": {
+                      "description": "Proxy, VPN or Tor exit address",
+                      "example": false,
+                      "type": "boolean"
+                    },
+                    "query": {
+                      "description": "IP address or domain used for the query",
+                      "example": "173.194.67.94",
+                      "type": "string"
+                    },
+                    "region": {
+                      "description": "Region/state short code (FIPS or ISO)",
+                      "example": "CA",
+                      "type": "string"
+                    },
+                    "regionName": {
+                      "description": "Region/state name",
+                      "example": "California",
+                      "type": "string"
+                    },
+                    "reverse": {
+                      "description": "Reverse DNS of the IP (can delay response)",
+                      "example": "wi-in-f94.1e100.net",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status of the query",
+                      "enum": [
+                        "success",
+                        "fail"
+                      ],
+                      "type": "string"
+                    },
+                    "timezone": {
+                      "description": "Timezone (tz database format)",
+                      "example": "America/Los_Angeles",
+                      "type": "string"
+                    },
+                    "zip": {
+                      "description": "Zip/postal code",
+                      "example": "94043",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful geolocation lookup",
+            "headers": {
+              "X-Rl": {
+                "description": "Number of requests remaining in the current rate limit window",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Ttl": {
+                "description": "Seconds until the rate limit is reset",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded - requests are throttled (45 requests per minute limit)",
+            "headers": {
+              "X-Rl": {
+                "description": "Number of requests remaining (0 when rate limited)",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Ttl": {
+                "description": "Seconds until the rate limit is reset",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }
