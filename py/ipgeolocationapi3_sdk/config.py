@@ -116,135 +116,161 @@ def make_config():
         "fields": [
           {
             "name": "as",
-            "short": "AS number and organization, separated by space (RIR).",
+            "title": "As",
             "type": "`$STRING`",
+            "short": "AS number and organization, separated by space (RIR).",
           },
           {
             "name": "asname",
-            "short": "AS name (RIR).",
+            "title": "Asname",
             "type": "`$STRING`",
+            "short": "AS name (RIR).",
           },
           {
             "name": "city",
-            "short": "City name",
+            "title": "City",
             "type": "`$STRING`",
+            "short": "City name",
           },
           {
             "name": "continent",
-            "short": "Continent name",
+            "title": "Continent",
             "type": "`$STRING`",
+            "short": "Continent name",
           },
           {
             "name": "continentCode",
-            "short": "Two-letter continent code",
+            "title": "Continent Code",
             "type": "`$STRING`",
+            "short": "Two-letter continent code",
           },
           {
             "name": "country",
-            "short": "Country name",
+            "title": "Country",
             "type": "`$STRING`",
+            "short": "Country name",
           },
           {
             "name": "countryCode",
-            "short": "Two-letter country code (ISO 3166-1 alpha-2)",
+            "title": "Country Code",
             "type": "`$STRING`",
+            "short": "Two-letter country code (ISO 3166-1 alpha-2)",
           },
           {
             "name": "currency",
-            "short": "National currency code",
+            "title": "Currency",
             "type": "`$STRING`",
+            "short": "National currency code",
           },
           {
             "name": "district",
-            "short": "District (subdivision of city)",
+            "title": "District",
             "type": "`$STRING`",
+            "short": "District (subdivision of city)",
           },
           {
             "name": "hosting",
-            "short": "Hosting, colocated or data center",
+            "title": "Hosting",
             "type": "`$BOOLEAN`",
+            "short": "Hosting, colocated or data center",
           },
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
           {
             "name": "isp",
-            "short": "ISP name",
+            "title": "Isp",
             "type": "`$STRING`",
+            "short": "ISP name",
           },
           {
-            "format": "float",
             "name": "lat",
-            "short": "Latitude",
+            "title": "Lat",
             "type": "`$NUMBER`",
+            "short": "Latitude",
+            "format": "float",
           },
           {
-            "format": "float",
             "name": "lon",
-            "short": "Longitude",
+            "title": "Lon",
             "type": "`$NUMBER`",
+            "short": "Longitude",
+            "format": "float",
           },
           {
             "name": "message",
-            "short": "Error message, included only when status is fail.",
+            "title": "Message",
             "type": "`$STRING`",
+            "short": "Error message, included only when status is fail.",
           },
           {
             "name": "mobile",
-            "short": "Mobile (cellular) connection",
+            "title": "Mobile",
             "type": "`$BOOLEAN`",
+            "short": "Mobile (cellular) connection",
           },
           {
             "name": "offset",
-            "short": "Timezone UTC DST offset in seconds",
+            "title": "Offset",
             "type": "`$INTEGER`",
+            "short": "Timezone UTC DST offset in seconds",
           },
           {
             "name": "org",
-            "short": "Organization name",
+            "title": "Org",
             "type": "`$STRING`",
+            "short": "Organization name",
           },
           {
             "name": "proxy",
-            "short": "Proxy, VPN or Tor exit address",
+            "title": "Proxy",
             "type": "`$BOOLEAN`",
+            "short": "Proxy, VPN or Tor exit address",
           },
           {
             "name": "query",
-            "short": "IP address or domain used for the query",
+            "title": "Query",
             "type": "`$STRING`",
+            "short": "IP address or domain used for the query",
           },
           {
             "name": "region",
-            "short": "Region/state short code (FIPS or ISO)",
+            "title": "Region",
             "type": "`$STRING`",
+            "short": "Region/state short code (FIPS or ISO)",
           },
           {
             "name": "regionName",
-            "short": "Region/state name",
+            "title": "Region Name",
             "type": "`$STRING`",
+            "short": "Region/state name",
           },
           {
             "name": "reverse",
-            "short": "Reverse DNS of the IP (can delay response)",
+            "title": "Reverse",
             "type": "`$STRING`",
+            "short": "Reverse DNS of the IP (can delay response)",
           },
           {
             "name": "status",
+            "title": "Status",
+            "type": "`$STRING`",
             "req": True,
             "short": "Status of the query",
-            "type": "`$STRING`",
           },
           {
             "name": "timezone",
-            "short": "Timezone (tz database format)",
+            "title": "Timezone",
             "type": "`$STRING`",
+            "short": "Timezone (tz database format)",
           },
           {
             "name": "zip",
-            "short": "Zip/postal code",
+            "title": "Zip",
             "type": "`$STRING`",
+            "short": "Zip/postal code",
           },
         ],
         "id": {
@@ -258,48 +284,9 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": "8.8.8.8",
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "query",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "callback",
-                      "orig": "callback",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "status,message,country,city,lat,lon",
-                      "kind": "query",
-                      "name": "field",
-                      "orig": "field",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "en",
-                      "kind": "query",
-                      "name": "lang",
-                      "orig": "lang",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/json/{query}",
-                "rename": {
-                  "param": {
-                    "query": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "json",
@@ -308,6 +295,53 @@ def make_config():
                     "var": "id",
                   },
                 ],
+                "parts": [
+                  "json",
+                  "{id}",
+                ],
+                "rename": {
+                  "param": {
+                    "query": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "query",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "8.8.8.8",
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "callback",
+                      "orig": "callback",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "field",
+                      "orig": "field",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "status,message,country,city,lat,lon",
+                    },
+                    {
+                      "name": "lang",
+                      "orig": "lang",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "en",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "callback",
@@ -316,40 +350,8 @@ def make_config():
                     "lang",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "json",
-                  "{id}",
-                ],
               },
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "callback",
-                      "orig": "callback",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "status,message,country,city,lat,lon",
-                      "kind": "query",
-                      "name": "field",
-                      "orig": "field",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "en",
-                      "kind": "query",
-                      "name": "lang",
-                      "orig": "lang",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/json/",
@@ -358,6 +360,38 @@ def make_config():
                     "lit": "json",
                   },
                 ],
+                "parts": [
+                  "json",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "callback",
+                      "orig": "callback",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "field",
+                      "orig": "field",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "status,message,country,city,lat,lon",
+                    },
+                    {
+                      "name": "lang",
+                      "orig": "lang",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "en",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "callback",
@@ -365,13 +399,6 @@ def make_config():
                     "lang",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "json",
-                ],
               },
             ],
           },

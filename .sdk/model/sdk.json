@@ -24,197 +24,289 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "json": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "as",
-              "req": false,
-              "short": "AS number and organization, separated by space (RIR).",
-              "type": "`$STRING`"
+          "fields": {
+            "as": {
+              "a": true,
+              "h": "As",
+              "n": "as",
+              "r": false,
+              "sh": "AS number and organization, separated by space (RIR).",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "asname",
-              "req": false,
-              "short": "AS name (RIR).",
-              "type": "`$STRING`"
+            "asname": {
+              "a": true,
+              "h": "Asname",
+              "n": "asname",
+              "r": false,
+              "sh": "AS name (RIR).",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "city",
-              "req": false,
-              "short": "City name",
-              "type": "`$STRING`"
+            "city": {
+              "a": true,
+              "h": "City",
+              "n": "city",
+              "r": false,
+              "sh": "City name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "continent",
-              "req": false,
-              "short": "Continent name",
-              "type": "`$STRING`"
+            "continent": {
+              "a": true,
+              "h": "Continent",
+              "n": "continent",
+              "r": false,
+              "sh": "Continent name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "continentCode",
-              "req": false,
-              "short": "Two-letter continent code",
-              "type": "`$STRING`"
+            "continentCode": {
+              "a": true,
+              "h": "Continent Code",
+              "n": "continentCode",
+              "r": false,
+              "sh": "Two-letter continent code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "country",
-              "req": false,
-              "short": "Country name",
-              "type": "`$STRING`"
+            "country": {
+              "a": true,
+              "h": "Country",
+              "n": "country",
+              "r": false,
+              "sh": "Country name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countryCode",
-              "req": false,
-              "short": "Two-letter country code (ISO 3166-1 alpha-2)",
-              "type": "`$STRING`"
+            "countryCode": {
+              "a": true,
+              "h": "Country Code",
+              "n": "countryCode",
+              "r": false,
+              "sh": "Two-letter country code (ISO 3166-1 alpha-2)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "currency",
-              "req": false,
-              "short": "National currency code",
-              "type": "`$STRING`"
+            "currency": {
+              "a": true,
+              "h": "Currency",
+              "n": "currency",
+              "r": false,
+              "sh": "National currency code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "district",
-              "req": false,
-              "short": "District (subdivision of city)",
-              "type": "`$STRING`"
+            "district": {
+              "a": true,
+              "h": "District",
+              "n": "district",
+              "r": false,
+              "sh": "District (subdivision of city)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "hosting",
-              "req": false,
-              "short": "Hosting, colocated or data center",
-              "type": "`$BOOLEAN`"
+            "hosting": {
+              "a": true,
+              "h": "Hosting",
+              "n": "hosting",
+              "r": false,
+              "sh": "Hosting, colocated or data center",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "isp",
-              "req": false,
-              "short": "ISP name",
-              "type": "`$STRING`"
+            "isp": {
+              "a": true,
+              "h": "Isp",
+              "n": "isp",
+              "r": false,
+              "sh": "ISP name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "lat",
-              "req": false,
-              "short": "Latitude",
-              "type": "`$NUMBER`"
+            "lat": {
+              "a": true,
+              "fo": "float",
+              "h": "Lat",
+              "n": "lat",
+              "r": false,
+              "sh": "Latitude",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "lon",
-              "req": false,
-              "short": "Longitude",
-              "type": "`$NUMBER`"
+            "lon": {
+              "a": true,
+              "fo": "float",
+              "h": "Lon",
+              "n": "lon",
+              "r": false,
+              "sh": "Longitude",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "message",
-              "req": false,
-              "short": "Error message, included only when status is fail.",
-              "type": "`$STRING`"
+            "message": {
+              "a": true,
+              "h": "Message",
+              "n": "message",
+              "r": false,
+              "sh": "Error message, included only when status is fail.",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "mobile",
-              "req": false,
-              "short": "Mobile (cellular) connection",
-              "type": "`$BOOLEAN`"
+            "mobile": {
+              "a": true,
+              "h": "Mobile",
+              "n": "mobile",
+              "r": false,
+              "sh": "Mobile (cellular) connection",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "offset",
-              "req": false,
-              "short": "Timezone UTC DST offset in seconds",
-              "type": "`$INTEGER`"
+            "offset": {
+              "a": true,
+              "h": "Offset",
+              "n": "offset",
+              "r": false,
+              "sh": "Timezone UTC DST offset in seconds",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "org",
-              "req": false,
-              "short": "Organization name",
-              "type": "`$STRING`"
+            "org": {
+              "a": true,
+              "h": "Org",
+              "n": "org",
+              "r": false,
+              "sh": "Organization name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "proxy",
-              "req": false,
-              "short": "Proxy, VPN or Tor exit address",
-              "type": "`$BOOLEAN`"
+            "proxy": {
+              "a": true,
+              "h": "Proxy",
+              "n": "proxy",
+              "r": false,
+              "sh": "Proxy, VPN or Tor exit address",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "query",
-              "req": false,
-              "short": "IP address or domain used for the query",
-              "type": "`$STRING`"
+            "query": {
+              "a": true,
+              "h": "Query",
+              "n": "query",
+              "r": false,
+              "sh": "IP address or domain used for the query",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "region",
-              "req": false,
-              "short": "Region/state short code (FIPS or ISO)",
-              "type": "`$STRING`"
+            "region": {
+              "a": true,
+              "h": "Region",
+              "n": "region",
+              "r": false,
+              "sh": "Region/state short code (FIPS or ISO)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "regionName",
-              "req": false,
-              "short": "Region/state name",
-              "type": "`$STRING`"
+            "regionName": {
+              "a": true,
+              "h": "Region Name",
+              "n": "regionName",
+              "r": false,
+              "sh": "Region/state name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "reverse",
-              "req": false,
-              "short": "Reverse DNS of the IP (can delay response)",
-              "type": "`$STRING`"
+            "reverse": {
+              "a": true,
+              "h": "Reverse",
+              "n": "reverse",
+              "r": false,
+              "sh": "Reverse DNS of the IP (can delay response)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": true,
-              "short": "Status of the query",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": true,
+              "sh": "Status of the query",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "timezone",
-              "req": false,
-              "short": "Timezone (tz database format)",
-              "type": "`$STRING`"
+            "timezone": {
+              "a": true,
+              "h": "Timezone",
+              "n": "timezone",
+              "r": false,
+              "sh": "Timezone (tz database format)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "zip",
-              "req": false,
-              "short": "Zip/postal code",
-              "type": "`$STRING`"
+            "zip": {
+              "a": true,
+              "h": "Zip",
+              "n": "zip",
+              "r": false,
+              "sh": "Zip/postal code",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -226,71 +318,57 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /json/{query}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "8.8.8.8",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "query",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "8.8.8.8",
+                        "k": "param",
+                        "n": "id",
+                        "or": "query",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "callback",
-                        "orig": "callback",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "callback",
+                        "or": "callback",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "status,message,country,city,lat,lon",
-                        "kind": "query",
-                        "name": "field",
-                        "orig": "field",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "status,message,country,city,lat,lon",
+                        "k": "query",
+                        "n": "field",
+                        "or": "field",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "en",
-                        "kind": "query",
-                        "name": "lang",
-                        "orig": "lang",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "en",
+                        "k": "query",
+                        "n": "lang",
+                        "or": "lang",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /json/{query}",
-                    "json": "{\"operationId\":\"getGeolocationByQuery\",\"parameters\":[{\"description\":\"IPv4/IPv6 address or domain name to lookup\",\"examples\":{\"domain\":{\"summary\":\"Domain name\",\"value\":\"google.com\"},\"ipv4\":{\"summary\":\"IPv4 address\",\"value\":\"8.8.8.8\"},\"ipv6\":{\"summary\":\"IPv6 address\",\"value\":\"2001:4860:4860::8888\"}},\"in\":\"path\",\"name\":\"query\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Comma-separated list of fields to return (e.g., 'status,message,query,country,city') or a numeric value representing combined fields\",\"example\":\"status,message,country,city,lat,lon\",\"in\":\"query\",\"name\":\"fields\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Response language for localized city, regionName and country fields\",\"in\":\"query\",\"name\":\"lang\",\"required\":false,\"schema\":{\"default\":\"en\",\"enum\":[\"en\",\"de\",\"es\",\"pt-BR\",\"fr\",\"ja\",\"zh-CN\",\"ru\"],\"type\":\"string\"}},{\"description\":\"JSONP callback function name to wrap the response\",\"in\":\"query\",\"name\":\"callback\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"fail_invalid\":{\"value\":{\"message\":\"invalid query\",\"query\":\"not-an-ip\",\"status\":\"fail\"}},\"fail_private\":{\"value\":{\"message\":\"private range\",\"query\":\"192.168.1.1\",\"status\":\"fail\"}},\"fail_reserved\":{\"value\":{\"message\":\"reserved range\",\"query\":\"0.0.0.0\",\"status\":\"fail\"}},\"success\":{\"value\":{\"as\":\"AS15169 Google Inc.\",\"asname\":\"GOOGLE\",\"city\":\"Mountain View\",\"continent\":\"North America\",\"continentCode\":\"NA\",\"country\":\"United States\",\"countryCode\":\"US\",\"currency\":\"USD\",\"district\":\"Old Farm District\",\"hosting\":true,\"isp\":\"Google\",\"lat\":37.4192,\"lon\":-122.0574,\"mobile\":false,\"offset\":-25200,\"org\":\"Google\",\"proxy\":false,\"query\":\"173.194.67.94\",\"region\":\"CA\",\"regionName\":\"California\",\"reverse\":\"wi-in-f94.1e100.net\",\"status\":\"success\",\"timezone\":\"America/Los_Angeles\",\"zip\":\"94043\"}}},\"schema\":{\"properties\":{\"as\":{\"description\":\"AS number and organization, separated by space (RIR). Empty for IP blocks not being announced in BGP tables\",\"example\":\"AS15169 Google Inc.\",\"type\":\"string\"},\"asname\":{\"description\":\"AS name (RIR). Empty for IP blocks not being announced in BGP tables\",\"example\":\"GOOGLE\",\"type\":\"string\"},\"city\":{\"description\":\"City name\",\"example\":\"Mountain View\",\"type\":\"string\"},\"continent\":{\"description\":\"Continent name\",\"example\":\"North America\",\"type\":\"string\"},\"continentCode\":{\"description\":\"Two-letter continent code\",\"example\":\"NA\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"example\":\"United States\",\"type\":\"string\"},\"countryCode\":{\"description\":\"Two-letter country code (ISO 3166-1 alpha-2)\",\"example\":\"US\",\"type\":\"string\"},\"currency\":{\"description\":\"National currency code\",\"example\":\"USD\",\"type\":\"string\"},\"district\":{\"description\":\"District (subdivision of city)\",\"example\":\"Old Farm District\",\"type\":\"string\"},\"hosting\":{\"description\":\"Hosting, colocated or data center\",\"example\":true,\"type\":\"boolean\"},\"isp\":{\"description\":\"ISP name\",\"example\":\"Google\",\"type\":\"string\"},\"lat\":{\"description\":\"Latitude\",\"example\":37.4192,\"format\":\"float\",\"type\":\"number\"},\"lon\":{\"description\":\"Longitude\",\"example\":-122.0574,\"format\":\"float\",\"type\":\"number\"},\"message\":{\"description\":\"Error message, included only when status is fail. Can be 'private range', 'reserved range', or 'invalid query'\",\"enum\":[\"private range\",\"reserved range\",\"invalid query\"],\"type\":\"string\"},\"mobile\":{\"description\":\"Mobile (cellular) connection\",\"example\":false,\"type\":\"boolean\"},\"offset\":{\"description\":\"Timezone UTC DST offset in seconds\",\"example\":-25200,\"type\":\"integer\"},\"org\":{\"description\":\"Organization name\",\"example\":\"Google\",\"type\":\"string\"},\"proxy\":{\"description\":\"Proxy, VPN or Tor exit address\",\"example\":false,\"type\":\"boolean\"},\"query\":{\"description\":\"IP address or domain used for the query\",\"example\":\"173.194.67.94\",\"type\":\"string\"},\"region\":{\"description\":\"Region/state short code (FIPS or ISO)\",\"example\":\"CA\",\"type\":\"string\"},\"regionName\":{\"description\":\"Region/state name\",\"example\":\"California\",\"type\":\"string\"},\"reverse\":{\"description\":\"Reverse DNS of the IP (can delay response)\",\"example\":\"wi-in-f94.1e100.net\",\"type\":\"string\"},\"status\":{\"description\":\"Status of the query\",\"enum\":[\"success\",\"fail\"],\"type\":\"string\"},\"timezone\":{\"description\":\"Timezone (tz database format)\",\"example\":\"America/Los_Angeles\",\"type\":\"string\"},\"zip\":{\"description\":\"Zip/postal code\",\"example\":\"94043\",\"type\":\"string\"}},\"required\":[\"status\"],\"type\":\"object\"}}},\"description\":\"Successful geolocation lookup\",\"headers\":{\"X-Rl\":{\"description\":\"Number of requests remaining in the current rate limit window\",\"schema\":{\"type\":\"integer\"}},\"X-Ttl\":{\"description\":\"Seconds until the rate limit is reset\",\"schema\":{\"type\":\"integer\"}}}},\"429\":{\"description\":\"Rate limit exceeded - requests are throttled (45 requests per minute limit)\",\"headers\":{\"X-Rl\":{\"description\":\"Number of requests remaining (0 when rate limited)\",\"schema\":{\"type\":\"integer\"}},\"X-Ttl\":{\"description\":\"Seconds until the rate limit is reset\",\"schema\":{\"type\":\"integer\"}}}}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/json/{query}",
-                  "rename": {
-                    "param": {
-                      "query": "id"
-                    }
-                  },
-                  "segments": [
-                    {
-                      "lit": "json"
-                    },
-                    {
-                      "var": "id"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/json/{query}",
+                  "q": {
                     "exist": [
                       "callback",
                       "field",
@@ -298,65 +376,78 @@
                       "lang"
                     ]
                   },
-                  "transform": {
+                  "r": {
+                    "param": {
+                      "query": "id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "json"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /json/",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "callback",
-                        "orig": "callback",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "callback",
+                        "or": "callback",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "status,message,country,city,lat,lon",
-                        "kind": "query",
-                        "name": "field",
-                        "orig": "field",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "status,message,country,city,lat,lon",
+                        "k": "query",
+                        "n": "field",
+                        "or": "field",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "en",
-                        "kind": "query",
-                        "name": "lang",
-                        "orig": "lang",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "en",
+                        "k": "query",
+                        "n": "lang",
+                        "or": "lang",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /json/",
-                    "json": "{\"operationId\":\"getGeolocationCurrent\",\"parameters\":[{\"description\":\"Comma-separated list of fields to return (e.g., 'status,message,query,country,city') or a numeric value representing combined fields\",\"example\":\"status,message,country,city,lat,lon\",\"in\":\"query\",\"name\":\"fields\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Response language for localized city, regionName and country fields\",\"in\":\"query\",\"name\":\"lang\",\"required\":false,\"schema\":{\"default\":\"en\",\"enum\":[\"en\",\"de\",\"es\",\"pt-BR\",\"fr\",\"ja\",\"zh-CN\",\"ru\"],\"type\":\"string\"}},{\"description\":\"JSONP callback function name to wrap the response\",\"in\":\"query\",\"name\":\"callback\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"fail\":{\"value\":{\"message\":\"invalid query\",\"query\":\"invalid\",\"status\":\"fail\"}},\"success\":{\"value\":{\"as\":\"AS15169 Google Inc.\",\"asname\":\"GOOGLE\",\"city\":\"Mountain View\",\"continent\":\"North America\",\"continentCode\":\"NA\",\"country\":\"United States\",\"countryCode\":\"US\",\"currency\":\"USD\",\"district\":\"Old Farm District\",\"hosting\":true,\"isp\":\"Google\",\"lat\":37.4192,\"lon\":-122.0574,\"mobile\":false,\"offset\":-25200,\"org\":\"Google\",\"proxy\":false,\"query\":\"173.194.67.94\",\"region\":\"CA\",\"regionName\":\"California\",\"reverse\":\"wi-in-f94.1e100.net\",\"status\":\"success\",\"timezone\":\"America/Los_Angeles\",\"zip\":\"94043\"}}},\"schema\":{\"properties\":{\"as\":{\"description\":\"AS number and organization, separated by space (RIR). Empty for IP blocks not being announced in BGP tables\",\"example\":\"AS15169 Google Inc.\",\"type\":\"string\"},\"asname\":{\"description\":\"AS name (RIR). Empty for IP blocks not being announced in BGP tables\",\"example\":\"GOOGLE\",\"type\":\"string\"},\"city\":{\"description\":\"City name\",\"example\":\"Mountain View\",\"type\":\"string\"},\"continent\":{\"description\":\"Continent name\",\"example\":\"North America\",\"type\":\"string\"},\"continentCode\":{\"description\":\"Two-letter continent code\",\"example\":\"NA\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"example\":\"United States\",\"type\":\"string\"},\"countryCode\":{\"description\":\"Two-letter country code (ISO 3166-1 alpha-2)\",\"example\":\"US\",\"type\":\"string\"},\"currency\":{\"description\":\"National currency code\",\"example\":\"USD\",\"type\":\"string\"},\"district\":{\"description\":\"District (subdivision of city)\",\"example\":\"Old Farm District\",\"type\":\"string\"},\"hosting\":{\"description\":\"Hosting, colocated or data center\",\"example\":true,\"type\":\"boolean\"},\"isp\":{\"description\":\"ISP name\",\"example\":\"Google\",\"type\":\"string\"},\"lat\":{\"description\":\"Latitude\",\"example\":37.4192,\"format\":\"float\",\"type\":\"number\"},\"lon\":{\"description\":\"Longitude\",\"example\":-122.0574,\"format\":\"float\",\"type\":\"number\"},\"message\":{\"description\":\"Error message, included only when status is fail. Can be 'private range', 'reserved range', or 'invalid query'\",\"enum\":[\"private range\",\"reserved range\",\"invalid query\"],\"type\":\"string\"},\"mobile\":{\"description\":\"Mobile (cellular) connection\",\"example\":false,\"type\":\"boolean\"},\"offset\":{\"description\":\"Timezone UTC DST offset in seconds\",\"example\":-25200,\"type\":\"integer\"},\"org\":{\"description\":\"Organization name\",\"example\":\"Google\",\"type\":\"string\"},\"proxy\":{\"description\":\"Proxy, VPN or Tor exit address\",\"example\":false,\"type\":\"boolean\"},\"query\":{\"description\":\"IP address or domain used for the query\",\"example\":\"173.194.67.94\",\"type\":\"string\"},\"region\":{\"description\":\"Region/state short code (FIPS or ISO)\",\"example\":\"CA\",\"type\":\"string\"},\"regionName\":{\"description\":\"Region/state name\",\"example\":\"California\",\"type\":\"string\"},\"reverse\":{\"description\":\"Reverse DNS of the IP (can delay response)\",\"example\":\"wi-in-f94.1e100.net\",\"type\":\"string\"},\"status\":{\"description\":\"Status of the query\",\"enum\":[\"success\",\"fail\"],\"type\":\"string\"},\"timezone\":{\"description\":\"Timezone (tz database format)\",\"example\":\"America/Los_Angeles\",\"type\":\"string\"},\"zip\":{\"description\":\"Zip/postal code\",\"example\":\"94043\",\"type\":\"string\"}},\"required\":[\"status\"],\"type\":\"object\"}}},\"description\":\"Successful geolocation lookup\",\"headers\":{\"X-Rl\":{\"description\":\"Number of requests remaining in the current rate limit window\",\"schema\":{\"type\":\"integer\"}},\"X-Ttl\":{\"description\":\"Seconds until the rate limit is reset\",\"schema\":{\"type\":\"integer\"}}}},\"429\":{\"description\":\"Rate limit exceeded - requests are throttled (45 requests per minute limit)\",\"headers\":{\"X-Rl\":{\"description\":\"Number of requests remaining (0 when rate limited)\",\"schema\":{\"type\":\"integer\"}},\"X-Ttl\":{\"description\":\"Seconds until the rate limit is reset\",\"schema\":{\"type\":\"integer\"}}}}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/json/",
-                  "segments": [
-                    {
-                      "lit": "json"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/json/",
+                  "q": {
                     "exist": [
                       "callback",
                       "field",
                       "lang"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "json"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -785,17 +876,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "json_ref01",
                 "srcdatavar": "json_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

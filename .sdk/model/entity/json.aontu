@@ -1,0 +1,332 @@
+# Entity: json
+
+main: kit: entity: json: {
+
+  alias: field: {}
+
+  fields: {
+    as: {
+      h: "As"
+      n: "as"
+      r: false
+      sh: "AS number and organization, separated by space (RIR)."
+      t: "`$STRING`"
+    }
+    asname: {
+      h: "Asname"
+      n: "asname"
+      r: false
+      sh: "AS name (RIR)."
+      t: "`$STRING`"
+    }
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      sh: "City name"
+      t: "`$STRING`"
+    }
+    continent: {
+      h: "Continent"
+      n: "continent"
+      r: false
+      sh: "Continent name"
+      t: "`$STRING`"
+    }
+    continentCode: {
+      h: "Continent Code"
+      n: "continentCode"
+      r: false
+      sh: "Two-letter continent code"
+      t: "`$STRING`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      sh: "Country name"
+      t: "`$STRING`"
+    }
+    countryCode: {
+      h: "Country Code"
+      n: "countryCode"
+      r: false
+      sh: "Two-letter country code (ISO 3166-1 alpha-2)"
+      t: "`$STRING`"
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: false
+      sh: "National currency code"
+      t: "`$STRING`"
+    }
+    district: {
+      h: "District"
+      n: "district"
+      r: false
+      sh: "District (subdivision of city)"
+      t: "`$STRING`"
+    }
+    hosting: {
+      h: "Hosting"
+      n: "hosting"
+      r: false
+      sh: "Hosting, colocated or data center"
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    isp: {
+      h: "Isp"
+      n: "isp"
+      r: false
+      sh: "ISP name"
+      t: "`$STRING`"
+    }
+    lat: {
+      fo: "float"
+      h: "Lat"
+      n: "lat"
+      r: false
+      sh: "Latitude"
+      t: "`$NUMBER`"
+    }
+    lon: {
+      fo: "float"
+      h: "Lon"
+      n: "lon"
+      r: false
+      sh: "Longitude"
+      t: "`$NUMBER`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: false
+      sh: "Error message, included only when status is fail."
+      t: "`$STRING`"
+    }
+    mobile: {
+      h: "Mobile"
+      n: "mobile"
+      r: false
+      sh: "Mobile (cellular) connection"
+      t: "`$BOOLEAN`"
+    }
+    offset: {
+      h: "Offset"
+      n: "offset"
+      r: false
+      sh: "Timezone UTC DST offset in seconds"
+      t: "`$INTEGER`"
+    }
+    org: {
+      h: "Org"
+      n: "org"
+      r: false
+      sh: "Organization name"
+      t: "`$STRING`"
+    }
+    proxy: {
+      h: "Proxy"
+      n: "proxy"
+      r: false
+      sh: "Proxy, VPN or Tor exit address"
+      t: "`$BOOLEAN`"
+    }
+    query: {
+      h: "Query"
+      n: "query"
+      r: false
+      sh: "IP address or domain used for the query"
+      t: "`$STRING`"
+    }
+    region: {
+      h: "Region"
+      n: "region"
+      r: false
+      sh: "Region/state short code (FIPS or ISO)"
+      t: "`$STRING`"
+    }
+    regionName: {
+      h: "Region Name"
+      n: "regionName"
+      r: false
+      sh: "Region/state name"
+      t: "`$STRING`"
+    }
+    reverse: {
+      h: "Reverse"
+      n: "reverse"
+      r: false
+      sh: "Reverse DNS of the IP (can delay response)"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Status of the query"
+      t: "`$STRING`"
+    }
+    timezone: {
+      h: "Timezone"
+      n: "timezone"
+      r: false
+      sh: "Timezone (tz database format)"
+      t: "`$STRING`"
+    }
+    zip: {
+      h: "Zip"
+      n: "zip"
+      r: false
+      sh: "Zip/postal code"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "json"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /json/{query}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "8.8.8.8"
+                k: "param"
+                n: "id"
+                or: "query"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "callback"
+                or: "callback"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "status,message,country,city,lat,lon"
+                k: "query"
+                n: "field"
+                or: "field"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "en"
+                k: "query"
+                n: "lang"
+                or: "lang"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/json/{query}"
+          q: {
+            exist: [
+              "callback"
+              "field"
+              "id"
+              "lang"
+            ]
+          }
+          r: {
+            param: {
+              query: "id"
+            }
+          }
+          s: [
+            {
+              lit: "json"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /json/"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "callback"
+                or: "callback"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "status,message,country,city,lat,lon"
+                k: "query"
+                n: "field"
+                or: "field"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "en"
+                k: "query"
+                n: "lang"
+                or: "lang"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/json/"
+          q: {
+            exist: [
+              "callback"
+              "field"
+              "lang"
+            ]
+          }
+          s: [
+            {
+              lit: "json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

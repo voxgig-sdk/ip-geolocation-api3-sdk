@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,135 +107,161 @@ class Config {
             "fields": [
                 {
                     "name": "as",
-                    "short": "AS number and organization, separated by space (RIR).",
-                    "type": "`$STRING`"
+                    "title": "As",
+                    "type": "`$STRING`",
+                    "short": "AS number and organization, separated by space (RIR)."
                 },
                 {
                     "name": "asname",
-                    "short": "AS name (RIR).",
-                    "type": "`$STRING`"
+                    "title": "Asname",
+                    "type": "`$STRING`",
+                    "short": "AS name (RIR)."
                 },
                 {
                     "name": "city",
-                    "short": "City name",
-                    "type": "`$STRING`"
+                    "title": "City",
+                    "type": "`$STRING`",
+                    "short": "City name"
                 },
                 {
                     "name": "continent",
-                    "short": "Continent name",
-                    "type": "`$STRING`"
+                    "title": "Continent",
+                    "type": "`$STRING`",
+                    "short": "Continent name"
                 },
                 {
                     "name": "continentCode",
-                    "short": "Two-letter continent code",
-                    "type": "`$STRING`"
+                    "title": "Continent Code",
+                    "type": "`$STRING`",
+                    "short": "Two-letter continent code"
                 },
                 {
                     "name": "country",
-                    "short": "Country name",
-                    "type": "`$STRING`"
+                    "title": "Country",
+                    "type": "`$STRING`",
+                    "short": "Country name"
                 },
                 {
                     "name": "countryCode",
-                    "short": "Two-letter country code (ISO 3166-1 alpha-2)",
-                    "type": "`$STRING`"
+                    "title": "Country Code",
+                    "type": "`$STRING`",
+                    "short": "Two-letter country code (ISO 3166-1 alpha-2)"
                 },
                 {
                     "name": "currency",
-                    "short": "National currency code",
-                    "type": "`$STRING`"
+                    "title": "Currency",
+                    "type": "`$STRING`",
+                    "short": "National currency code"
                 },
                 {
                     "name": "district",
-                    "short": "District (subdivision of city)",
-                    "type": "`$STRING`"
+                    "title": "District",
+                    "type": "`$STRING`",
+                    "short": "District (subdivision of city)"
                 },
                 {
                     "name": "hosting",
-                    "short": "Hosting, colocated or data center",
-                    "type": "`$BOOLEAN`"
+                    "title": "Hosting",
+                    "type": "`$BOOLEAN`",
+                    "short": "Hosting, colocated or data center"
                 },
                 {
                     "name": "id",
+                    "title": "Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "isp",
-                    "short": "ISP name",
-                    "type": "`$STRING`"
+                    "title": "Isp",
+                    "type": "`$STRING`",
+                    "short": "ISP name"
                 },
                 {
-                    "format": "float",
                     "name": "lat",
+                    "title": "Lat",
+                    "type": "`$NUMBER`",
                     "short": "Latitude",
-                    "type": "`$NUMBER`"
+                    "format": "float"
                 },
                 {
-                    "format": "float",
                     "name": "lon",
+                    "title": "Lon",
+                    "type": "`$NUMBER`",
                     "short": "Longitude",
-                    "type": "`$NUMBER`"
+                    "format": "float"
                 },
                 {
                     "name": "message",
-                    "short": "Error message, included only when status is fail.",
-                    "type": "`$STRING`"
+                    "title": "Message",
+                    "type": "`$STRING`",
+                    "short": "Error message, included only when status is fail."
                 },
                 {
                     "name": "mobile",
-                    "short": "Mobile (cellular) connection",
-                    "type": "`$BOOLEAN`"
+                    "title": "Mobile",
+                    "type": "`$BOOLEAN`",
+                    "short": "Mobile (cellular) connection"
                 },
                 {
                     "name": "offset",
-                    "short": "Timezone UTC DST offset in seconds",
-                    "type": "`$INTEGER`"
+                    "title": "Offset",
+                    "type": "`$INTEGER`",
+                    "short": "Timezone UTC DST offset in seconds"
                 },
                 {
                     "name": "org",
-                    "short": "Organization name",
-                    "type": "`$STRING`"
+                    "title": "Org",
+                    "type": "`$STRING`",
+                    "short": "Organization name"
                 },
                 {
                     "name": "proxy",
-                    "short": "Proxy, VPN or Tor exit address",
-                    "type": "`$BOOLEAN`"
+                    "title": "Proxy",
+                    "type": "`$BOOLEAN`",
+                    "short": "Proxy, VPN or Tor exit address"
                 },
                 {
                     "name": "query",
-                    "short": "IP address or domain used for the query",
-                    "type": "`$STRING`"
+                    "title": "Query",
+                    "type": "`$STRING`",
+                    "short": "IP address or domain used for the query"
                 },
                 {
                     "name": "region",
-                    "short": "Region/state short code (FIPS or ISO)",
-                    "type": "`$STRING`"
+                    "title": "Region",
+                    "type": "`$STRING`",
+                    "short": "Region/state short code (FIPS or ISO)"
                 },
                 {
                     "name": "regionName",
-                    "short": "Region/state name",
-                    "type": "`$STRING`"
+                    "title": "Region Name",
+                    "type": "`$STRING`",
+                    "short": "Region/state name"
                 },
                 {
                     "name": "reverse",
-                    "short": "Reverse DNS of the IP (can delay response)",
-                    "type": "`$STRING`"
+                    "title": "Reverse",
+                    "type": "`$STRING`",
+                    "short": "Reverse DNS of the IP (can delay response)"
                 },
                 {
                     "name": "status",
+                    "title": "Status",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Status of the query",
-                    "type": "`$STRING`"
+                    "short": "Status of the query"
                 },
                 {
                     "name": "timezone",
-                    "short": "Timezone (tz database format)",
-                    "type": "`$STRING`"
+                    "title": "Timezone",
+                    "type": "`$STRING`",
+                    "short": "Timezone (tz database format)"
                 },
                 {
                     "name": "zip",
-                    "short": "Zip/postal code",
-                    "type": "`$STRING`"
+                    "title": "Zip",
+                    "type": "`$STRING`",
+                    "short": "Zip/postal code"
                 }
             ],
             "id": {
@@ -256,48 +275,9 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "example": "8.8.8.8",
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "query",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ],
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "callback",
-                                        "orig": "callback",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "status,message,country,city,lat,lon",
-                                        "kind": "query",
-                                        "name": "field",
-                                        "orig": "field",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "en",
-                                        "kind": "query",
-                                        "name": "lang",
-                                        "orig": "lang",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/json/{query}",
-                            "rename": {
-                                "param": {
-                                    "query": "id"
-                                }
-                            },
                             "segments": [
                                 {
                                     "lit": "json"
@@ -306,6 +286,53 @@ class Config {
                                     "var": "id"
                                 }
                             ],
+                            "parts": [
+                                "json",
+                                "{id}"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "query": "id"
+                                }
+                            },
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "query",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "8.8.8.8"
+                                    }
+                                ],
+                                "query": [
+                                    {
+                                        "name": "callback",
+                                        "orig": "callback",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "field",
+                                        "orig": "field",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "status,message,country,city,lat,lon"
+                                    },
+                                    {
+                                        "name": "lang",
+                                        "orig": "lang",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "en"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "callback",
@@ -313,41 +340,9 @@ class Config {
                                     "id",
                                     "lang"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "json",
-                                "{id}"
-                            ]
+                            }
                         },
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "callback",
-                                        "orig": "callback",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "status,message,country,city,lat,lon",
-                                        "kind": "query",
-                                        "name": "field",
-                                        "orig": "field",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "en",
-                                        "kind": "query",
-                                        "name": "lang",
-                                        "orig": "lang",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/json/",
@@ -356,20 +351,45 @@ class Config {
                                     "lit": "json"
                                 }
                             ],
+                            "parts": [
+                                "json"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "callback",
+                                        "orig": "callback",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "field",
+                                        "orig": "field",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "status,message,country,city,lat,lon"
+                                    },
+                                    {
+                                        "name": "lang",
+                                        "orig": "lang",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "en"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "callback",
                                     "field",
                                     "lang"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "json"
-                            ]
+                            }
                         }
                     ]
                 }
