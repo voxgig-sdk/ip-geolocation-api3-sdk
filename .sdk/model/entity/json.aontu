@@ -229,7 +229,7 @@ main: kit: entity: json: {
                 ex: "status,message,country,city,lat,lon"
                 k: "query"
                 n: "field"
-                or: "field"
+                or: "fields"
                 r: false
                 t: "`$STRING`"
               }
@@ -290,7 +290,7 @@ main: kit: entity: json: {
                 ex: "status,message,country,city,lat,lon"
                 k: "query"
                 n: "field"
-                or: "field"
+                or: "fields"
                 r: false
                 t: "`$STRING`"
               }

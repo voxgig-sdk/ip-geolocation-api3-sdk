@@ -328,7 +328,7 @@ def make_config():
                     },
                     {
                       "name": "field",
-                      "orig": "field",
+                      "orig": "fields",
                       "type": "`$STRING`",
                       "kind": "query",
                       "example": "status,message,country,city,lat,lon",
@@ -378,7 +378,7 @@ def make_config():
                     },
                     {
                       "name": "field",
-                      "orig": "field",
+                      "orig": "fields",
                       "type": "`$STRING`",
                       "kind": "query",
                       "example": "status,message,country,city,lat,lon",

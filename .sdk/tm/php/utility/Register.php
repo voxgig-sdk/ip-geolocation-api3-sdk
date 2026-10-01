@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 IpGeolocationApi3Utility::setRegistrar(function (IpGeolocationApi3Utility $u): void {
     $u->clean = [IpGeolocationApi3Clean::class, 'call'];
+    $u->clean_add = [IpGeolocationApi3Clean::class, 'add'];
+    $u->clean_explain = [IpGeolocationApi3Done::class, 'clean_explain'];
     $u->done = [IpGeolocationApi3Done::class, 'call'];
     $u->make_error = [IpGeolocationApi3MakeError::class, 'call'];
     $u->feature_add = [IpGeolocationApi3FeatureAdd::class, 'call'];

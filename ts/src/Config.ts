@@ -344,7 +344,7 @@ class Config {
                   },
                   {
                     "name": "field",
-                    "orig": "field",
+                    "orig": "fields",
                     "type": "`$STRING`",
                     "kind": "query",
                     "example": "status,message,country,city,lat,lon"
@@ -394,7 +394,7 @@ class Config {
                   },
                   {
                     "name": "field",
-                    "orig": "field",
+                    "orig": "fields",
                     "type": "`$STRING`",
                     "kind": "query",
                     "example": "status,message,country,city,lat,lon"

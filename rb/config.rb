@@ -311,7 +311,7 @@ module IpGeolocationApi3Config
                       },
                       {
                         "name" => "field",
-                        "orig" => "field",
+                        "orig" => "fields",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "status,message,country,city,lat,lon",
@@ -361,7 +361,7 @@ module IpGeolocationApi3Config
                       },
                       {
                         "name" => "field",
-                        "orig" => "field",
+                        "orig" => "fields",
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "status,message,country,city,lat,lon",

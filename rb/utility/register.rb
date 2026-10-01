@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 IpGeolocationApi3Utility.registrar = ->(u) {
   u.clean = IpGeolocationApi3Utilities::Clean
+  u.clean_add = IpGeolocationApi3Utilities::CleanAdd
+  u.clean_explain = IpGeolocationApi3Utilities::CleanExplain
   u.done = IpGeolocationApi3Utilities::Done
   u.make_error = IpGeolocationApi3Utilities::MakeError
   u.feature_add = IpGeolocationApi3Utilities::FeatureAdd

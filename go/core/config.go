@@ -303,7 +303,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "field",
-											"orig": "field",
+											"orig": "fields",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "status,message,country,city,lat,lon",
@@ -353,7 +353,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "field",
-											"orig": "field",
+											"orig": "fields",
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "status,message,country,city,lat,lon",

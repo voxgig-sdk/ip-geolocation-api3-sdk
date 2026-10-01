@@ -299,7 +299,7 @@ local function make_config()
                     },
                     {
                       ["name"] = "field",
-                      ["orig"] = "field",
+                      ["orig"] = "fields",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
                       ["example"] = "status,message,country,city,lat,lon",
@@ -349,7 +349,7 @@ local function make_config()
                     },
                     {
                       ["name"] = "field",
-                      ["orig"] = "field",
+                      ["orig"] = "fields",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
                       ["example"] = "status,message,country,city,lat,lon",
