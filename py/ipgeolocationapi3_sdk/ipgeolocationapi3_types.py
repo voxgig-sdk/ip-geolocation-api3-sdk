@@ -16,35 +16,41 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
-class JsonRequired(TypedDict):
-    status: str
+JsonRequired = TypedDict('JsonRequired', {
+    "status": str,
+})
+
+JsonOptional = TypedDict('JsonOptional', {
+    "as": str,
+    "asname": str,
+    "city": str,
+    "continent": str,
+    "continentCode": str,
+    "country": str,
+    "countryCode": str,
+    "currency": str,
+    "district": str,
+    "hosting": bool,
+    "id": str,
+    "isp": str,
+    "lat": float,
+    "lon": float,
+    "message": str,
+    "mobile": bool,
+    "offset": int,
+    "org": str,
+    "proxy": bool,
+    "query": str,
+    "region": str,
+    "regionName": str,
+    "reverse": str,
+    "timezone": str,
+    "zip": str,
+}, total=False)
 
 
-class Json(JsonRequired, total=False):
-    asname: str
-    city: str
-    continent: str
-    continentCode: str
-    country: str
-    countryCode: str
-    currency: str
-    district: str
-    hosting: bool
-    id: str
-    isp: str
-    lat: float
-    lon: float
-    message: str
-    mobile: bool
-    offset: int
-    org: str
-    proxy: bool
-    query: str
-    region: str
-    regionName: str
-    reverse: str
-    timezone: str
-    zip: str
+class Json(JsonRequired, JsonOptional):
+    pass
 
 
 class JsonLoadMatchRequired(TypedDict):

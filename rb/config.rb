@@ -79,6 +79,7 @@ module IpGeolocationApi3Config
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -327,11 +328,12 @@ module IpGeolocationApi3Config
                   },
                   "select" => {
                     "exist" => [
-                      "callback",
-                      "field",
                       "id",
-                      "lang",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
                 {
@@ -375,12 +377,10 @@ module IpGeolocationApi3Config
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "callback",
-                      "field",
-                      "lang",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

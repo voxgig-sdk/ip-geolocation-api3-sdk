@@ -93,6 +93,7 @@ class IpGeolocationApi3Config
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -341,11 +342,12 @@ class IpGeolocationApi3Config
                   ],
                   'select' => [
                     'exist' => [
-                      'callback',
-                      'field',
                       'id',
-                      'lang',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
                 [
@@ -389,12 +391,10 @@ class IpGeolocationApi3Config
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'callback',
-                      'field',
-                      'lang',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

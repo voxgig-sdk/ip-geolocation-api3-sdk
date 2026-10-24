@@ -23,14 +23,32 @@ const PLAN: any[] = [
     ],
     "select": {
       "callback": "v1",
-      "field": "v1",
-      "lang": "v1"
+      "field": "status,message,country,city,lat,lon",
+      "lang": "en"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "fields",
       "lang",
       "callback"
+    ],
+    "queryArgs": [
+      {
+        "name": "callback",
+        "wire": "callback"
+      },
+      {
+        "name": "field",
+        "wire": "fields"
+      },
+      {
+        "name": "lang",
+        "wire": "lang"
+      }
     ],
     "auth": null,
     "status": 200,
@@ -71,14 +89,32 @@ const PLAN: any[] = [
     "args": [],
     "select": {
       "callback": "v1",
-      "field": "v1",
-      "lang": "v1"
+      "field": "status,message,country,city,lat,lon",
+      "lang": "en"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "fields",
       "lang",
       "callback"
+    ],
+    "queryArgs": [
+      {
+        "name": "callback",
+        "wire": "callback"
+      },
+      {
+        "name": "field",
+        "wire": "fields"
+      },
+      {
+        "name": "lang",
+        "wire": "lang"
+      }
     ],
     "auth": null,
     "status": 200,

@@ -67,6 +67,7 @@ local function make_config()
         },
         ["optspec"] = {
           ["clearTimer"] = "`$FUNCTION`",
+          ["now"] = "`$FUNCTION`",
           ["setTimer"] = "`$FUNCTION`",
         },
         ["strict"] = false,
@@ -315,11 +316,12 @@ local function make_config()
                 },
                 ["select"] = {
                   ["exist"] = {
-                    "callback",
-                    "field",
                     "id",
-                    "lang",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
               {
@@ -363,12 +365,10 @@ local function make_config()
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "callback",
-                    "field",
-                    "lang",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },

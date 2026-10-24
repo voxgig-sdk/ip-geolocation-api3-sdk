@@ -247,16 +247,17 @@ main: kit: entity: json: {
           o: "/json/{query}"
           q: {
             exist: [
-              "callback"
-              "field"
               "id"
-              "lang"
             ]
           }
           r: {
             param: {
               query: "id"
             }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -306,12 +307,9 @@ main: kit: entity: json: {
           }
           m: "GET"
           o: "/json/"
-          q: {
-            exist: [
-              "callback"
-              "field"
-              "lang"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

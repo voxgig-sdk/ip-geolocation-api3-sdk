@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "AS name (RIR). Empty for IP blocks not being announced in BGP tables",
+      "AS number and organization, separated by space (RIR). Empty for IP blocks not being announced in BGP tables",
+      "City name",
+      "Continent name",
+      "Main API server (HTTP only for free tier)",
+      "Successful geolocation lookup",
+      "This API allows users to retrieve geolocation information from an IP address or domain name. It provides details such as country, city, region, latitude, longitude, and more in a JSON format without requiring an API key.",
+      "Two-letter continent code"
+    ]
+  }
 }
